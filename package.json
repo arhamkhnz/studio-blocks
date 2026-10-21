@@ -15,8 +15,8 @@
     "fix": "pnpm lint:fix && pnpm format"
   },
   "devDependencies": {
-    "oxfmt": "^0.73.0",
-    "oxlint": "^1.88.0",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
     "turbo": "^2.5.8"
   },
   "engines": {
