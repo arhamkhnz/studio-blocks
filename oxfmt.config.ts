@@ -27,4 +27,8 @@ export default defineConfig({
   objectWrap: "preserve",
   embeddedLanguageFormatting: "auto",
   sortPackageJson: false,
+  sortTailwindcss: {
+    stylesheet: "./apps/www/src/app/globals.css",
+    functions: ["cn", "clsx", "cva"],
+  },
 });
