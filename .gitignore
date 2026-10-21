@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.turbo/
+out/
+dist/
+*.tsbuildinfo
+.env*
+!.env.example
+.DS_Store
+apps/www/public/r/*.json

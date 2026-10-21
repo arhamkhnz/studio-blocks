@@ -1,0 +1,6 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "studio-blocks",
+  "homepage": "https://github.com/arhamkhnz/studio-blocks",
+  "include": ["src/registry/blocks/dashboard-01/registry.json"]
+}

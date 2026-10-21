@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "items": [
+    {
+      "name": "dashboard-01",
+      "type": "registry:block",
+      "title": "Dashboard 01",
+      "description": "An empty dashboard block starting from the layout of next-shadcn-admin-dashboard.",
+      "files": [
+        {
+          "path": "dashboard.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

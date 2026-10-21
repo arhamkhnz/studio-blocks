@@ -1,0 +1,23 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "tasks": {
+    "registry:build": {
+      "inputs": ["registry.json", "src/registry/**", "package.json"],
+      "outputs": ["public/r/**"]
+    },
+    "build": {
+      "dependsOn": ["^build", "registry:build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "!public/r/**"],
+      "outputs": [".next/**", "!.next/cache/**", "!.next/dev/**"]
+    },
+    "dev": {
+      "dependsOn": ["registry:build"],
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
