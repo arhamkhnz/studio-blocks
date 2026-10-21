@@ -9,6 +9,7 @@ export default defineConfig({
     "**/out/**",
     "**/coverage/**",
     "apps/www/public/**",
+    "apps/www/src/components/ui/**",
   ],
   plugins: ["react", "typescript", "oxc"],
   rules: {
