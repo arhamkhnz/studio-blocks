@@ -8,7 +8,7 @@
     "build": {
       "dependsOn": ["^build", "registry:build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*", "!public/r/**"],
-      "outputs": [".next/**", "!.next/cache/**", "!.next/dev/**"]
+      "outputs": [".next/**", "!.next/cache/**", "!.next/dev/**", "out/**"]
     },
     "dev": {
       "dependsOn": ["registry:build"],

@@ -11,21 +11,13 @@ pnpm install
 pnpm dev
 ```
 
-The homepage has a gallery layout alongside a sticky introduction on desktop. The block catalog and registry are currently empty. Filtering and installation UI remain placeholders. There is no consumer app.
-
-## Gallery
-
-`GalleryPreview` centers each live block inside a consistent preview surface. A `ResizeObserver` fits previews to the available space while preserving their source width and proportions. The catalog in `apps/www/src/catalog/blocks.ts` defines their source dimensions.
-
-Preview code is imported lazily when it approaches the viewport, and distant preview content is unmounted. There are no thumbnail assets. Each label links to an isolated live preview.
-
-The earlier Panzoom canvas components remain available under `apps/www/src/features/canvas`, but the homepage no longer mounts the canvas or its camera. Filters and installation controls are not implemented yet.
+The homepage has a sticky introduction on desktop and static category labels. The registry is currently empty. There is no consumer app.
 
 ## UI components
 
-The website and block previews share one Base UI Nova collection in the private `packages/blocks-ui` workspace. Both `components.json` files select `base-nova`; the website's UI alias routes CLI additions into that shared package. Next.js compiles its exported TypeScript directly, and Tailwind scans its source through `@source` in the app's global CSS.
+The website uses Base UI Nova in the private `packages/blocks-ui` workspace. Only Button is currently installed. Both `components.json` files select `base-nova`; the website's UI alias routes CLI additions into that shared package. Next.js compiles its exported TypeScript directly, and Tailwind scans its source through `@source` in the app's global CSS.
 
-`apps/www/src/components/ui` contains local re-exports from the shared package so registry source can keep portable `@/components/ui/...` imports. The site and previews use the same global theme tokens, with no separate preview theme.
+`apps/www/src/components/ui` contains the local Button re-export. Future registry source can use portable `@/components/ui/...` imports. Components import `cn` directly from the `cn` package; the shared utility export exists for shadcn CLI configuration.
 
 From the repository root:
 
@@ -45,7 +37,7 @@ The unmodified font assets and their license are in `apps/www/src/lib/fonts`. Th
 
 ## Registry
 
-Installable source lives in `apps/www/src/registry/blocks`. The website manifest at `apps/www/registry.json` includes each block's local manifest; file paths in those manifests are relative to their declaring manifest. The repository-root `registry.json` includes the website manifest so GitHub installation and website hosting share the same source catalog.
+Future installable source belongs in `apps/www/src/registry/blocks`. Add each block's manifest to `apps/www/registry.json` using `include`; file paths are relative to their declaring manifest. The repository-root `registry.json` includes the website manifest so GitHub installation and website hosting share the same source catalog. The website manifest currently has an empty `items` array.
 
 ```sh
 pnpm registry:build
@@ -88,7 +80,17 @@ pnpm build
 pnpm start
 ```
 
-On hosting platforms, use the repository root for dependency installation and run the root build task so registry generation runs before Next.js. The Next.js application is `apps/www`.
+Next.js exports static HTML, CSS, JavaScript, fonts, and registry JSON into `apps/www/out`. `pnpm start` previews this export locally using Wrangler; it requires an existing build and downloads Wrangler through pnpm. Development remains `pnpm dev`.
+
+Deploy with Cloudflare Workers Builds using these settings:
+
+| Setting | Value |
+| --- | --- |
+| Root directory | Repository root |
+| Build command | `pnpm run build` |
+| Deploy command | `npx wrangler deploy --config apps/www/wrangler.jsonc` |
+
+The Wrangler configuration belongs to `apps/www` and serves its `out` directory as static assets. Its `name` must match the Worker name configured in Cloudflare; it currently uses `studio-blocks`. No Worker server script or OpenNext adapter is required for the current static site. Registry generation runs before the website build, so its output is included in the export. Turborepo caches the export through the build task's `out/**` output.
 
 ## Formatting and linting
 

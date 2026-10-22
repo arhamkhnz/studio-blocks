@@ -1,0 +1,8 @@
+{
+  "name": "studio-blocks",
+  "compatibility_date": "2026-10-22",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
