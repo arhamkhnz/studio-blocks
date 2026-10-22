@@ -2,7 +2,7 @@
   "$schema": "https://turborepo.dev/schema.json",
   "tasks": {
     "registry:build": {
-      "inputs": ["registry.json", "src/registry/**", "package.json"],
+      "inputs": ["registry.json", "src/registry/**", "scripts/rewrite-registry-imports.mjs", "package.json"],
       "outputs": ["public/r/**"]
     },
     "build": {

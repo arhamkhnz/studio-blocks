@@ -1,5 +1,5 @@
 import { GitHubIcon } from "@/components/icons/github";
-import { Button } from "@/components/ui/button";
+import { Button } from "@studio-blocks/blocks-ui/components/button";
 import { BlocksGallery } from "@/features/gallery/blocks-gallery";
 
 export default function Page() {
