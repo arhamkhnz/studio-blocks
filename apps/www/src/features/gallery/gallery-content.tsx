@@ -25,7 +25,12 @@ export function GalleryContent({ blocks }: GalleryContentProps) {
 
   return (
     <div className="flex min-w-0 flex-col gap-6">
-      <BlockFilters category={category} onCategoryChange={setCategory} />
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+        <BlockFilters category={category} onCategoryChange={setCategory} />
+        <p className="ml-auto shrink-0 text-[15px] font-[450] text-muted-foreground tabular-nums">
+          {visibleBlocks.length} {visibleBlocks.length === 1 ? "block" : "blocks"}
+        </p>
+      </div>
       <p className="sr-only" role="status" aria-live="polite">
         {visibleBlocks.length === 0 ? "No blocks found for this category." : `${visibleBlocks.length} blocks found.`}
       </p>
