@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "pnpm dlx wrangler@4 dev --config wrangler.jsonc",
-    "registry:build": "shadcn build registry.json --output public/r && node scripts/rewrite-registry-imports.mjs"
+    "registry:build": "node scripts/generate-registry.mjs && shadcn build registry.json --output public/r && node scripts/rewrite-registry-imports.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

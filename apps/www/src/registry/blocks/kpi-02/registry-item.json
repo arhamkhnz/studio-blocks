@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-02",
+  "type": "registry:block",
+  "title": "Lead Pipeline Value",
+  "description": "A lead pipeline KPI card with a monthly comparison and growth indicator.",
+  "categories": ["kpi"],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["card", "badge"],
+  "files": [
+    {
+      "path": "kpi-02.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "component": "Kpi02",
+    "preview": {
+      "colSpan": 1,
+      "maxWidth": 384,
+      "aspectRatio": "4 / 3"
+    }
+  }
+}

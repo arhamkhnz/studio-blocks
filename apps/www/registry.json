@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "studio-blocks",
-  "homepage": "https://github.com/arhamkhnz/studio-blocks",
+  "homepage": "https://studio-blocks.arhamkhnz.com",
   "items": [
     {
       "name": "kpi-01",
@@ -16,7 +16,15 @@
           "path": "src/registry/blocks/kpi-01/kpi-01.tsx",
           "type": "registry:component"
         }
-      ]
+      ],
+      "meta": {
+        "component": "Kpi01",
+        "preview": {
+          "colSpan": 1,
+          "maxWidth": 384,
+          "aspectRatio": "4 / 3"
+        }
+      }
     },
     {
       "name": "kpi-02",
@@ -31,7 +39,15 @@
           "path": "src/registry/blocks/kpi-02/kpi-02.tsx",
           "type": "registry:component"
         }
-      ]
+      ],
+      "meta": {
+        "component": "Kpi02",
+        "preview": {
+          "colSpan": 1,
+          "maxWidth": 384,
+          "aspectRatio": "4 / 3"
+        }
+      }
     }
   ]
 }
