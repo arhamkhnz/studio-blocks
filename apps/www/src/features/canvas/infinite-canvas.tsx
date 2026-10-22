@@ -18,6 +18,7 @@ export function InfiniteCanvas({ children, className }: InfiniteCanvasProps) {
   return (
     <div
       ref={viewportRef}
+      data-canvas-viewport
       role="region"
       aria-label="Studio Blocks canvas"
       aria-describedby={instructionsId}

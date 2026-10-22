@@ -32,7 +32,6 @@ export function useCanvasCamera() {
     };
 
     const handleWheel = (event: WheelEvent) => {
-      if (event.target instanceof Element && event.target.closest(".panzoom-exclude")) return;
       camera.zoomWithWheel(event);
     };
 

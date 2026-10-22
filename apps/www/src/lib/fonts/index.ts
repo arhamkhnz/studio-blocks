@@ -7,12 +7,3 @@ export const fontSans = localFont({
   style: "normal",
   display: "block",
 });
-
-export const fontSerif = localFont({
-  src: "./TimelessSerifVF.woff2",
-  variable: "--font-timeless-serif",
-  weight: "200 700",
-  style: "normal",
-  adjustFontFallback: "Times New Roman",
-  display: "block",
-});

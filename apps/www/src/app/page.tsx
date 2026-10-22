@@ -1,34 +1,46 @@
-import { ArrowUpRight } from "lucide-react";
-
-import { InfiniteCanvas } from "@/features/canvas/infinite-canvas";
+import { GitHubIcon } from "@/components/icons/github";
+import { Button } from "@/components/ui/button";
+import { BlocksGallery } from "@/features/gallery/blocks-gallery";
 
 export default function Page() {
   return (
-    <main className="relative">
-      <header className="pointer-events-none absolute inset-x-0 top-0 z-10 grid grid-cols-[1fr_auto_1fr] items-center p-2.5 text-center">
-        <div aria-hidden="true" />
-        <p className="text-3xl leading-none font-[350] tracking-tighter">studio blocks</p>
-        <a
-          href="https://github.com/arhamkhnz/studio-blocks"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pointer-events-auto inline-flex items-center gap-1 self-stretch justify-self-end text-xl leading-none tracking-tighter hover:underline"
-        >
-          GitHub
-          <ArrowUpRight aria-hidden="true" className="size-5" />
-        </a>
-      </header>
-
-      <InfiniteCanvas>
-        <div className="absolute top-1/2 left-1/2 flex w-full max-w-4xl -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4 px-6 text-center">
-          <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] font-light tracking-tight text-balance [font-variation-settings:'STYL'_100] sm:text-5xl lg:text-6xl">
+    <main className="mx-auto grid min-h-dvh max-w-480 gap-12 px-6 py-8 sm:px-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-16 lg:p-8 xl:grid-cols-[300px_minmax(0,1fr)] xl:gap-20">
+      <aside className="flex flex-col gap-12 lg:sticky lg:top-8 lg:h-[calc(100dvh-4rem)] lg:self-start">
+        <header className="flex items-center justify-between gap-4">
+          <p className="text-2xl leading-none font-[350] tracking-tighter">studio blocks</p>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="-mr-2"
+            nativeButton={false}
+            role="link"
+            aria-label="GitHub"
+            render={<a href="https://github.com/arhamkhnz/studio-blocks" target="_blank" rel="noopener noreferrer" />}
+          >
+            <GitHubIcon aria-hidden="true" />
+          </Button>
+        </header>
+        <div className="flex max-w-sm flex-col gap-4">
+          <h1 className="text-4xl font-light tracking-tight text-balance lg:text-3xl">
             A collection of minimal, reusable UI blocks
           </h1>
-          <p className="max-w-xl text-base leading-relaxed tracking-tight text-balance text-muted-foreground sm:text-lg">
+          <p className="max-w-64 text-sm leading-relaxed text-muted-foreground">
             Built with React, Tailwind CSS, and shadcn/ui.
           </p>
         </div>
-      </InfiniteCanvas>
+        <footer className="text-xs text-muted-foreground lg:mt-auto">
+          built by{" "}
+          <a
+            href="https://github.com/arhamkhnz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          >
+            arhamkhnz
+          </a>
+        </footer>
+      </aside>
+      <BlocksGallery />
     </main>
   );
 }
