@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   applicationName: site.name,
   title: {
     default: site.title,
-    template: `%s | ${site.name}`,
+    template: `%s - ${site.name}`,
   },
   description: site.description,
   authors: [site.author],

@@ -84,7 +84,11 @@ export function BlockInstallation({
 
   return (
     <Tabs defaultValue={preview ? "preview" : "installation"} className="min-w-0 flex-1 gap-6">
-      <TabsList variant="line" aria-label="Block instructions">
+      <TabsList
+        variant="line"
+        aria-label="Block instructions"
+        className="gap-6 px-0 *:data-[slot=tabs-trigger]:flex-none *:data-[slot=tabs-trigger]:border-0 *:data-[slot=tabs-trigger]:px-0 *:data-[slot=tabs-trigger]:after:-inset-x-0.5"
+      >
         {preview && <TabsTrigger value="preview">Preview</TabsTrigger>}
         <TabsTrigger value="installation">Installation</TabsTrigger>
         <TabsTrigger value="usage">Usage</TabsTrigger>
