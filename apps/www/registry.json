@@ -17,6 +17,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "kpi-02",
+      "type": "registry:block",
+      "title": "Lead Pipeline Value",
+      "description": "A lead pipeline KPI card with a monthly comparison and growth indicator.",
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "badge"],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi-02/kpi-02.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
