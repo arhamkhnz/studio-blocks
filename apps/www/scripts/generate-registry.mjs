@@ -82,6 +82,7 @@ for (const directory of directories) {
   gallery.push(`  {
     id: ${JSON.stringify(item.name)},
     title: ${JSON.stringify(item.title ?? item.name)},
+    description: ${JSON.stringify(item.description ?? "")},
     category: ${JSON.stringify(category)},
     component: Block${index},
     colSpan: ${preview.colSpan},

@@ -7,6 +7,7 @@ export const blocks = [
   {
     id: "kpi-01",
     title: "Total Revenue",
+    description: "A revenue KPI card with a value, trend, and description.",
     category: "kpi",
     component: Block0,
     colSpan: 1,
@@ -16,6 +17,7 @@ export const blocks = [
   {
     id: "kpi-02",
     title: "Lead Pipeline Value",
+    description: "A lead pipeline KPI card with a monthly comparison and growth indicator.",
     category: "kpi",
     component: Block1,
     colSpan: 1,
