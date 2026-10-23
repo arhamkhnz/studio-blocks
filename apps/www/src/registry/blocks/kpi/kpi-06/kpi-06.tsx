@@ -19,7 +19,7 @@ export function Kpi06({ title = "API requests", used = 24500, limit = 50000, ...
   return (
     <Card {...props}>
       <CardHeader>
-        <CardTitle className="font-normal">{title}</CardTitle>
+        <CardTitle className="text-sm font-normal">{title}</CardTitle>
         <CardAction>
           <div className="flex size-7 items-center justify-center rounded-md bg-muted text-muted-foreground">
             <Waypoints aria-hidden="true" className="size-4" />
