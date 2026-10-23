@@ -1,8 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-import { site } from "@/lib/site";
-
 type RegistryItem = {
   dependencies?: string[];
   registryDependencies?: string[];
@@ -17,7 +15,7 @@ export async function getInstallation(id: string) {
   const importPath = entry.target.replace(/^@components\//, "@/components/").replace(/\.tsx$/, "");
 
   return {
-    url: `${site.url}/r/${id}.json`,
+    registryItem: `@studio-blocks/${id}`,
     dependencies: item.dependencies ?? [],
     registryDependencies: item.registryDependencies ?? [],
     files: item.files.map((file) => ({

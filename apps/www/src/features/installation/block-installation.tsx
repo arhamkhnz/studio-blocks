@@ -7,7 +7,7 @@ import { useEffect, useState, type ReactNode } from "react";
 
 type SourceFile = { path: string; content: string };
 type InstallationProps = {
-  url: string;
+  registryItem: string;
   files: SourceFile[];
   dependencies: string[];
   registryDependencies: string[];
@@ -71,7 +71,7 @@ function CodeBlock({ code, title }: { code: string; title?: string }) {
 }
 
 export function BlockInstallation({
-  url,
+  registryItem,
   files,
   dependencies,
   registryDependencies,
@@ -80,7 +80,7 @@ export function BlockInstallation({
 }: InstallationProps) {
   const [packageManager, setPackageManager] = useState("pnpm");
   const commands = Object.entries(runners);
-  const command = `${runners[packageManager as keyof typeof runners]} ${url}`;
+  const command = `${runners[packageManager as keyof typeof runners]} ${registryItem}`;
 
   return (
     <Tabs defaultValue={preview ? "preview" : "installation"} className="min-w-0 flex-1 gap-6">
@@ -119,7 +119,7 @@ export function BlockInstallation({
             <TabsContent key={manager} value={manager}>
               <pre className="overflow-x-auto px-4 py-4 text-sm leading-6">
                 <code>
-                  {runner} {url}
+                  {runner} {registryItem}
                 </code>
               </pre>
             </TabsContent>

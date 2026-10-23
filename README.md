@@ -24,27 +24,13 @@ Build dashboards and applications with blocks you can install, edit, and compose
 
 Start with a React project configured for [shadcn/ui](https://ui.shadcn.com/docs/installation) and Tailwind CSS v4. Open a block on the [website](https://studio-blocks.arhamkhnz.com) to find its installation and usage instructions.
 
-Install directly from the public registry:
-
-```bash
-pnpm dlx shadcn@latest add https://studio-blocks.arhamkhnz.com/r/kpi-01.json
-```
-
-Or configure the namespace once in your project's `components.json`, preserving its other settings:
-
-```json
-{
-  "registries": {
-    "@studio-blocks": "https://studio-blocks.arhamkhnz.com/r/{name}.json"
-  }
-}
-```
-
-Then install blocks by name:
+Install blocks by name:
 
 ```bash
 pnpm dlx shadcn@latest add @studio-blocks/kpi-01
 ```
+
+Studio Blocks is listed in the [shadcn registry directory](https://ui.shadcn.com/docs/registry/registry-index). The CLI automatically adds the registry to your project's `components.json`.
 
 By default, block files are installed under your components alias in `studio-blocks/`:
 

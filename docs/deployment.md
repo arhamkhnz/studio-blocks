@@ -45,9 +45,9 @@ Check these endpoints after deployment:
 Install an item into a separate initialized shadcn project to check the public registry end to end:
 
 ```bash
-pnpm dlx shadcn@latest add https://studio-blocks.arhamkhnz.com/r/kpi-01.json
+pnpm dlx shadcn@latest add @studio-blocks/kpi-01
 ```
 
 ## Registry namespaces
 
-Users can configure `@studio-blocks` in their own `components.json` without directory approval. Automatic namespace discovery depends on publication in the shadcn registry directory. Keep the direct JSON URL available in installation documentation regardless of directory status.
+`@studio-blocks` is published in the shadcn registry directory. The CLI resolves the namespace automatically and adds its URL mapping to the user's `components.json`. Direct item URLs such as `https://studio-blocks.arhamkhnz.com/r/kpi-01.json` remain available.
