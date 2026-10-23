@@ -10,6 +10,7 @@ export function BlocksGallery() {
           id: block.id,
           category: block.category,
           colSpan: block.colSpan,
+          rowSpan: block.rowSpan,
           preview: <BlockPreview {...block} />,
         }))}
       />

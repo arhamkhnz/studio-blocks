@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const appDirectory = fileURLToPath(new URL("../", import.meta.url));
 const sourceDirectory = "src/registry/blocks";
-const previewDefaults = { colSpan: 1, maxWidth: 384, aspectRatio: "4 / 3" };
+const previewDefaults = { colSpan: 1, rowSpan: 1, maxWidth: 384 };
 const items = [];
 const imports = [];
 const gallery = [];
@@ -12,14 +12,13 @@ const names = new Set();
 
 function getPreview(item) {
   const preview = { ...previewDefaults, ...item.meta?.preview };
-  const ratio = typeof preview.aspectRatio === "string" ? preview.aspectRatio.split("/").map(Number) : [];
 
   if (
     ![1, 2, 3].includes(preview.colSpan) ||
+    !Number.isSafeInteger(preview.rowSpan) ||
+    preview.rowSpan < 1 ||
     !Number.isFinite(preview.maxWidth) ||
-    preview.maxWidth <= 0 ||
-    ratio.length !== 2 ||
-    !ratio.every((value) => Number.isFinite(value) && value > 0)
+    preview.maxWidth <= 0
   ) {
     throw new Error(`${item.name}: invalid meta.preview settings.`);
   }
@@ -100,8 +99,8 @@ for (const directory of directories) {
     category: ${JSON.stringify(category)},
     component: Block${index},
     colSpan: ${preview.colSpan},
+    rowSpan: ${preview.rowSpan},
     previewMaxWidth: ${preview.maxWidth},
-    previewAspectRatio: ${JSON.stringify(preview.aspectRatio)},
   },`);
   items.push({ ...item, files });
 }

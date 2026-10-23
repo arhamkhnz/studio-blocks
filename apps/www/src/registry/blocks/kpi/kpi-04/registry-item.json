@@ -23,8 +23,8 @@
     "component": "Kpi04",
     "preview": {
       "colSpan": 1,
-      "maxWidth": 384,
-      "aspectRatio": "4 / 3"
+      "rowSpan": 1,
+      "maxWidth": 384
     }
   }
 }

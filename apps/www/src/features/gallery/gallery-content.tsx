@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, type CSSProperties, type ReactNode } from "react";
 import { cn } from "cn";
 
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@studio-blocks/blocks-ui/components/empty";
@@ -16,7 +16,7 @@ const columnSpans = {
 } as const;
 
 type GalleryContentProps = {
-  blocks: { id: string; category: BlockCategory; colSpan: GalleryBlock["colSpan"]; preview: ReactNode }[];
+  blocks: { id: string; category: BlockCategory; colSpan: GalleryBlock["colSpan"]; rowSpan: number; preview: ReactNode }[];
 };
 
 export function GalleryContent({ blocks }: GalleryContentProps) {
@@ -36,9 +36,13 @@ export function GalleryContent({ blocks }: GalleryContentProps) {
       </p>
       <div id="block-results">
         {visibleBlocks.length > 0 ? (
-          <div className="grid grid-flow-dense gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-flow-dense gap-3 sm:auto-rows-63 sm:grid-cols-2 lg:grid-cols-3">
             {visibleBlocks.map((block) => (
-              <div key={block.id} className={cn("min-w-0", columnSpans[block.colSpan])}>
+              <div
+                key={block.id}
+                className={cn("min-w-0 sm:row-span-(--preview-row-span)", columnSpans[block.colSpan])}
+                style={{ "--preview-row-span": block.rowSpan } as CSSProperties}
+              >
                 {block.preview}
               </div>
             ))}

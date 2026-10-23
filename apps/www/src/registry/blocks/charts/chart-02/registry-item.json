@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-02",
+  "type": "registry:block",
+  "title": "Realtime Visitors",
+  "description": "A visitor activity chart with a live status indicator and country breakdown.",
+  "categories": [
+    "charts"
+  ],
+  "dependencies": [
+    "cn",
+    "recharts@^3.8.0"
+  ],
+  "registryDependencies": [
+    "card",
+    "chart"
+  ],
+  "files": [
+    {
+      "path": "chart-02.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "flags.css",
+      "type": "registry:file",
+      "target": "@components/studio-blocks/flags.css"
+    }
+  ],
+  "meta": {
+    "component": "Chart02",
+    "preview": {
+      "colSpan": 2,
+      "rowSpan": 2,
+      "maxWidth": 520
+    }
+  }
+}

@@ -4,9 +4,15 @@
   "type": "registry:block",
   "title": "Income sources",
   "description": "An income breakdown card showing salary, freelance projects, and dividends.",
-  "categories": ["charts"],
-  "dependencies": ["cn"],
-  "registryDependencies": ["card"],
+  "categories": [
+    "charts"
+  ],
+  "dependencies": [
+    "cn"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
   "files": [
     {
       "path": "chart-01.tsx",
@@ -17,8 +23,8 @@
     "component": "Chart01",
     "preview": {
       "colSpan": 2,
-      "maxWidth": 768,
-      "aspectRatio": "8 / 3"
+      "rowSpan": 1,
+      "maxWidth": 768
     }
   }
 }

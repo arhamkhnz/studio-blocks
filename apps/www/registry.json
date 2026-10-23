@@ -28,8 +28,8 @@
         "component": "Kpi01",
         "preview": {
           "colSpan": 1,
-          "maxWidth": 384,
-          "aspectRatio": "4 / 3"
+          "rowSpan": 1,
+          "maxWidth": 384
         }
       }
     },
@@ -58,8 +58,8 @@
         "component": "Kpi02",
         "preview": {
           "colSpan": 1,
-          "maxWidth": 384,
-          "aspectRatio": "4 / 3"
+          "rowSpan": 1,
+          "maxWidth": 384
         }
       }
     },
@@ -84,8 +84,8 @@
         "component": "Chart01",
         "preview": {
           "colSpan": 2,
-          "maxWidth": 768,
-          "aspectRatio": "8 / 3"
+          "rowSpan": 1,
+          "maxWidth": 768
         }
       },
       "dependencies": [
@@ -114,8 +114,8 @@
         "component": "Kpi03",
         "preview": {
           "colSpan": 1,
-          "maxWidth": 384,
-          "aspectRatio": "4 / 3"
+          "rowSpan": 1,
+          "maxWidth": 384
         }
       }
     },
@@ -143,8 +143,8 @@
         "component": "Kpi04",
         "preview": {
           "colSpan": 1,
-          "maxWidth": 384,
-          "aspectRatio": "4 / 3"
+          "rowSpan": 1,
+          "maxWidth": 384
         }
       }
     },
@@ -173,8 +173,44 @@
         "component": "Kpi05",
         "preview": {
           "colSpan": 1,
-          "maxWidth": 384,
-          "aspectRatio": "4 / 3"
+          "rowSpan": 1,
+          "maxWidth": 384
+        }
+      }
+    },
+    {
+      "name": "chart-02",
+      "type": "registry:block",
+      "title": "Realtime Visitors",
+      "description": "A visitor activity chart with a live status indicator and country breakdown.",
+      "categories": [
+        "charts"
+      ],
+      "dependencies": [
+        "cn",
+        "recharts@^3.8.0"
+      ],
+      "registryDependencies": [
+        "card",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/charts/chart-02/chart-02.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/registry/blocks/charts/chart-02/flags.css",
+          "type": "registry:file",
+          "target": "@components/studio-blocks/flags.css"
+        }
+      ],
+      "meta": {
+        "component": "Chart02",
+        "preview": {
+          "colSpan": 2,
+          "rowSpan": 2,
+          "maxWidth": 520
         }
       }
     }

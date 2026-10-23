@@ -8,6 +8,8 @@ import { Kpi03 as Block3 } from "@/registry/blocks/kpi/kpi-03/kpi-03";
 import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 
+import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
+
 export const blocks = [
   {
     id: "kpi-01",
@@ -16,8 +18,8 @@ export const blocks = [
     category: "kpi",
     component: Block0,
     colSpan: 1,
+    rowSpan: 1,
     previewMaxWidth: 384,
-    previewAspectRatio: "4 / 3",
   },
   {
     id: "kpi-02",
@@ -26,8 +28,8 @@ export const blocks = [
     category: "kpi",
     component: Block1,
     colSpan: 1,
+    rowSpan: 1,
     previewMaxWidth: 384,
-    previewAspectRatio: "4 / 3",
   },
   {
     id: "chart-01",
@@ -36,8 +38,8 @@ export const blocks = [
     category: "charts",
     component: Block2,
     colSpan: 2,
+    rowSpan: 1,
     previewMaxWidth: 768,
-    previewAspectRatio: "8 / 3",
   },
   {
     id: "kpi-03",
@@ -46,8 +48,8 @@ export const blocks = [
     category: "kpi",
     component: Block3,
     colSpan: 1,
+    rowSpan: 1,
     previewMaxWidth: 384,
-    previewAspectRatio: "4 / 3",
   },
   {
     id: "kpi-04",
@@ -56,8 +58,8 @@ export const blocks = [
     category: "kpi",
     component: Block4,
     colSpan: 1,
+    rowSpan: 1,
     previewMaxWidth: 384,
-    previewAspectRatio: "4 / 3",
   },
   {
     id: "kpi-05",
@@ -66,7 +68,17 @@ export const blocks = [
     category: "kpi",
     component: Block5,
     colSpan: 1,
+    rowSpan: 1,
     previewMaxWidth: 384,
-    previewAspectRatio: "4 / 3",
+  },
+  {
+    id: "chart-02",
+    title: "Realtime Visitors",
+    description: "A visitor activity chart with a live status indicator and country breakdown.",
+    category: "charts",
+    component: Block6,
+    colSpan: 2,
+    rowSpan: 2,
+    previewMaxWidth: 520,
   },
 ] satisfies GalleryBlock[];
