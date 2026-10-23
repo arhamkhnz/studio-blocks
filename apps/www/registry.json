@@ -20,7 +20,7 @@
       ],
       "files": [
         {
-          "path": "src/registry/blocks/kpi-01/kpi-01.tsx",
+          "path": "src/registry/blocks/kpi/kpi-01/kpi-01.tsx",
           "type": "registry:component"
         }
       ],
@@ -50,12 +50,127 @@
       ],
       "files": [
         {
-          "path": "src/registry/blocks/kpi-02/kpi-02.tsx",
+          "path": "src/registry/blocks/kpi/kpi-02/kpi-02.tsx",
           "type": "registry:component"
         }
       ],
       "meta": {
         "component": "Kpi02",
+        "preview": {
+          "colSpan": 1,
+          "maxWidth": 384,
+          "aspectRatio": "4 / 3"
+        }
+      }
+    },
+    {
+      "name": "chart-01",
+      "type": "registry:block",
+      "title": "Income sources",
+      "description": "An income breakdown card showing salary, freelance projects, and dividends.",
+      "categories": [
+        "charts"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/charts/chart-01/chart-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "component": "Chart01",
+        "preview": {
+          "colSpan": 2,
+          "maxWidth": 768,
+          "aspectRatio": "8 / 3"
+        }
+      },
+      "dependencies": [
+        "cn"
+      ]
+    },
+    {
+      "name": "kpi-03",
+      "type": "registry:block",
+      "title": "Net Worth",
+      "description": "A net worth KPI card with a monthly comparison and growth badge.",
+      "categories": [
+        "kpi"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi/kpi-03/kpi-03.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "component": "Kpi03",
+        "preview": {
+          "colSpan": 1,
+          "maxWidth": 384,
+          "aspectRatio": "4 / 3"
+        }
+      }
+    },
+    {
+      "name": "kpi-04",
+      "type": "registry:block",
+      "title": "Total Orders",
+      "description": "An orders KPI card with an icon and a weekly comparison.",
+      "categories": [
+        "kpi"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi/kpi-04/kpi-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "component": "Kpi04",
+        "preview": {
+          "colSpan": 1,
+          "maxWidth": 384,
+          "aspectRatio": "4 / 3"
+        }
+      }
+    },
+    {
+      "name": "kpi-05",
+      "type": "registry:block",
+      "title": "Unique Visitors",
+      "description": "A visitor KPI card with a previous-period comparison and growth badge.",
+      "categories": [
+        "kpi"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi/kpi-05/kpi-05.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "component": "Kpi05",
         "preview": {
           "colSpan": 1,
           "maxWidth": 384,

@@ -8,6 +8,7 @@ const previewDefaults = { colSpan: 1, maxWidth: 384, aspectRatio: "4 / 3" };
 const items = [];
 const imports = [];
 const gallery = [];
+const names = new Set();
 
 function getPreview(item) {
   const preview = { ...previewDefaults, ...item.meta?.preview };
@@ -36,20 +37,31 @@ async function writeGenerated(path, content) {
   await writeFile(path, content);
 }
 
-const directories = (await readdir(join(appDirectory, sourceDirectory), { withFileTypes: true }))
-  .filter((entry) => entry.isDirectory())
-  .sort((left, right) => left.name.localeCompare(right.name));
+async function findBlocks(parent) {
+  const directories = await readdir(join(appDirectory, parent), { withFileTypes: true });
+  const found = [];
 
-for (const directory of directories) {
-  let manifest;
-  try {
-    manifest = await readFile(join(appDirectory, sourceDirectory, directory.name, "registry-item.json"), "utf8");
-  } catch (error) {
-    if (error.code === "ENOENT") continue;
-    throw error;
+  for (const directory of directories) {
+    if (!directory.isDirectory()) continue;
+    const path = posix.join(parent, directory.name);
+    let manifest;
+    try {
+      manifest = await readFile(join(appDirectory, path, "registry-item.json"), "utf8");
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+      found.push(...(await findBlocks(path)));
+      continue;
+    }
+    found.push({ name: directory.name, path, manifest });
   }
 
-  const item = JSON.parse(manifest);
+  return found;
+}
+
+const directories = (await findBlocks(sourceDirectory)).sort((left, right) => left.name.localeCompare(right.name));
+
+for (const directory of directories) {
+  const item = JSON.parse(directory.manifest);
   delete item.$schema;
   const component = item.meta?.component;
   const category = item.categories?.[0];
@@ -57,6 +69,8 @@ for (const directory of directories) {
   if (item.name !== directory.name || typeof component !== "string" || !/^[A-Z][\w$]*$/.test(component)) {
     throw new Error(`${directory.name}: name must match its folder and meta.component must name the React export.`);
   }
+  if (names.has(item.name)) throw new Error(`${item.name}: block names must be unique across categories.`);
+  names.add(item.name);
   if (typeof category !== "string" || !category || category === "all") {
     throw new Error(`${item.name}: specify the gallery category in categories.`);
   }
@@ -67,7 +81,7 @@ for (const directory of directories) {
     if (posix.isAbsolute(localPath) || localPath === ".." || localPath.startsWith("../")) {
       throw new Error(`${item.name}: file paths must stay inside the block folder.`);
     }
-    const path = posix.join(sourceDirectory, directory.name, localPath);
+    const path = posix.join(directory.path, localPath);
     await access(join(appDirectory, path));
     files.push({ ...file, path });
   }

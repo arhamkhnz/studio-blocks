@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-05",
+  "type": "registry:block",
+  "title": "Unique Visitors",
+  "description": "A visitor KPI card with a previous-period comparison and growth badge.",
+  "categories": [
+    "kpi"
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "kpi-05.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "component": "Kpi05",
+    "preview": {
+      "colSpan": 1,
+      "maxWidth": 384,
+      "aspectRatio": "4 / 3"
+    }
+  }
+}

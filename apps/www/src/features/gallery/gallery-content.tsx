@@ -36,7 +36,7 @@ export function GalleryContent({ blocks }: GalleryContentProps) {
       </p>
       <div id="block-results">
         {visibleBlocks.length > 0 ? (
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-flow-dense gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {visibleBlocks.map((block) => (
               <div key={block.id} className={cn("min-w-0", columnSpans[block.colSpan])}>
                 {block.preview}

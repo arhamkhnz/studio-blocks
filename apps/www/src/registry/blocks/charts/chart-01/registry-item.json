@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-01",
+  "type": "registry:block",
+  "title": "Income sources",
+  "description": "An income breakdown card showing salary, freelance projects, and dividends.",
+  "categories": ["charts"],
+  "dependencies": ["cn"],
+  "registryDependencies": ["card"],
+  "files": [
+    {
+      "path": "chart-01.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "component": "Chart01",
+    "preview": {
+      "colSpan": 2,
+      "maxWidth": 768,
+      "aspectRatio": "8 / 3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-03",
+  "type": "registry:block",
+  "title": "Net Worth",
+  "description": "A net worth KPI card with a monthly comparison and growth badge.",
+  "categories": [
+    "kpi"
+  ],
+  "registryDependencies": [
+    "card",
+    "badge"
+  ],
+  "files": [
+    {
+      "path": "kpi-03.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "component": "Kpi03",
+    "preview": {
+      "colSpan": 1,
+      "maxWidth": 384,
+      "aspectRatio": "4 / 3"
+    }
+  }
+}

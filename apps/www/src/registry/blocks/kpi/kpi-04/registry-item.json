@@ -1,0 +1,30 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-04",
+  "type": "registry:block",
+  "title": "Total Orders",
+  "description": "An orders KPI card with an icon and a weekly comparison.",
+  "categories": [
+    "kpi"
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "card"
+  ],
+  "files": [
+    {
+      "path": "kpi-04.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "component": "Kpi04",
+    "preview": {
+      "colSpan": 1,
+      "maxWidth": 384,
+      "aspectRatio": "4 / 3"
+    }
+  }
+}
