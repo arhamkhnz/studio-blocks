@@ -4,17 +4,9 @@
   "type": "registry:block",
   "title": "Realtime Visitors",
   "description": "A visitor activity chart with a live status indicator and country breakdown.",
-  "categories": [
-    "charts"
-  ],
-  "dependencies": [
-    "cn",
-    "recharts@^3.8.0"
-  ],
-  "registryDependencies": [
-    "card",
-    "chart"
-  ],
+  "categories": ["charts"],
+  "dependencies": ["cn", "recharts@^3.8.0"],
+  "registryDependencies": ["card", "chart"],
   "files": [
     {
       "path": "chart-02.tsx",

@@ -4,16 +4,9 @@
   "type": "registry:block",
   "title": "Total Revenue",
   "description": "A revenue KPI card with a value, trend, and description.",
-  "categories": [
-    "kpi"
-  ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "card",
-    "badge"
-  ],
+  "categories": ["kpi"],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["card", "badge"],
   "files": [
     {
       "path": "kpi-01.tsx",

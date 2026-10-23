@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-07",
+  "type": "registry:block",
+  "title": "Monthly Proposal Goal",
+  "description": "A goal progress KPI card with green segments and a configurable target.",
+  "categories": ["kpi"],
+  "dependencies": ["cn"],
+  "registryDependencies": ["card"],
+  "files": [{ "path": "kpi-07.tsx", "type": "registry:component" }],
+  "meta": {
+    "component": "Kpi07",
+    "preview": { "colSpan": 1, "rowSpan": 1, "maxWidth": 384 }
+  }
+}

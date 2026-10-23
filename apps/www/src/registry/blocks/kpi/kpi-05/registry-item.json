@@ -4,16 +4,9 @@
   "type": "registry:block",
   "title": "Unique Visitors",
   "description": "A visitor KPI card with a previous-period comparison and growth badge.",
-  "categories": [
-    "kpi"
-  ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "card",
-    "badge"
-  ],
+  "categories": ["kpi"],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["card", "badge"],
   "files": [
     {
       "path": "kpi-05.tsx",

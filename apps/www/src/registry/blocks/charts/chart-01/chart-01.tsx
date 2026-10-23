@@ -47,15 +47,12 @@ export function Chart01({
         <CardTitle className="font-normal">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 gap-3 md:grid-flow-col md:auto-cols-fr">
+        <div className="grid grid-cols-1 gap-3 md:auto-cols-fr md:grid-flow-col">
           {sources.map((item, index) => (
             <section key={`${item.label}-${index}`} className="flex min-w-0 items-start gap-2">
-              <span
-                aria-hidden="true"
-                className={cn("mt-1 size-2 shrink-0 rounded-full border", colors[item.color])}
-              />
+              <span aria-hidden="true" className={cn("mt-1 size-2 shrink-0 rounded-full border", colors[item.color])} />
               <div className="flex min-w-0 flex-1 flex-col gap-1">
-                <p className="text-xs leading-snug text-muted-foreground wrap-break-word">
+                <p className="text-xs leading-snug wrap-break-word text-muted-foreground">
                   {item.label} · {total > 0 ? Math.round((item.amount / total) * 100) : 0}%
                 </p>
                 <div className="font-heading text-lg leading-none tracking-tight tabular-nums">
@@ -67,13 +64,15 @@ export function Chart01({
         </div>
         {total > 0 ? (
           <div aria-hidden="true" className="flex h-5 gap-1">
-            {sources.filter((item) => item.amount > 0).map((item, index) => (
-              <div
-                key={`${item.label}-${index}`}
-                className={cn("min-w-0 rounded-sm border", colors[item.color])}
-                style={{ flexGrow: item.amount, flexBasis: 0 }}
-              />
-            ))}
+            {sources
+              .filter((item) => item.amount > 0)
+              .map((item, index) => (
+                <div
+                  key={`${item.label}-${index}`}
+                  className={cn("min-w-0 rounded-sm border", colors[item.color])}
+                  style={{ flexGrow: item.amount, flexBasis: 0 }}
+                />
+              ))}
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">No income to display.</p>

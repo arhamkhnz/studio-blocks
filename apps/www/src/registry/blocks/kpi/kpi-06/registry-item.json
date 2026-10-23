@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-06",
+  "type": "registry:block",
+  "title": "API Usage",
+  "description": "An API usage KPI card with a request count and quota progress.",
+  "categories": ["kpi"],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["card", "progress"],
+  "files": [{ "path": "kpi-06.tsx", "type": "registry:component" }],
+  "meta": {
+    "component": "Kpi06",
+    "preview": { "colSpan": 1, "rowSpan": 1, "maxWidth": 384 }
+  }
+}

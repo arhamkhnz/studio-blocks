@@ -9,6 +9,8 @@ import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 
 import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
+import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
+import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
 
 export const blocks = [
   {
@@ -80,5 +82,25 @@ export const blocks = [
     colSpan: 2,
     rowSpan: 2,
     previewMaxWidth: 520,
+  },
+  {
+    id: "kpi-06",
+    title: "API Usage",
+    description: "An API usage KPI card with a request count and quota progress.",
+    category: "kpi",
+    component: Block7,
+    colSpan: 1,
+    rowSpan: 1,
+    previewMaxWidth: 384,
+  },
+  {
+    id: "kpi-07",
+    title: "Monthly Proposal Goal",
+    description: "A goal progress KPI card with green segments and a configurable target.",
+    category: "kpi",
+    component: Block8,
+    colSpan: 1,
+    rowSpan: 1,
+    previewMaxWidth: 384,
   },
 ] satisfies GalleryBlock[];

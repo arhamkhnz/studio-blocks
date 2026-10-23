@@ -18,7 +18,9 @@ export function Kpi05() {
           </Badge>
         </div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span>from <span className="text-foreground">207.3k</span></span>
+          <span>
+            from <span className="text-foreground">207.3k</span>
+          </span>
           <span aria-hidden="true">·</span>
           <span>last 4 weeks</span>
         </div>

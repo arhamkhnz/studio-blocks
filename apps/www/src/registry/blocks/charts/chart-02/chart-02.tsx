@@ -5,7 +5,12 @@ import { cn } from "cn";
 import { Bar, BarChart, type BarShapeProps, XAxis, YAxis } from "recharts";
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@studio-blocks/blocks-ui/components/card";
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@studio-blocks/blocks-ui/components/chart";
+import {
+  type ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@studio-blocks/blocks-ui/components/chart";
 
 // Country flag classes require this stylesheet, which is shipped beside the component in the registry.
 import "./flags.css";
@@ -22,8 +27,9 @@ export type Chart02Props = ComponentProps<typeof Card> & {
 };
 
 // Demo values are static. Supply updated activity and country counts from your own data source.
-const defaultActivity = [0, 6, 12, 20, 12, 0, 6, 6, 0, 4, 0, 20, 15, 4, 6, 0, 4, 12, 20, 0, 4, 20, 12, 0, 6, 6, 0, 20, 0, 4]
-  .map((visitors, index) => ({ minute: index + 1, visitors }));
+const defaultActivity = [
+  0, 6, 12, 20, 12, 0, 6, 6, 0, 4, 0, 20, 15, 4, 6, 0, 4, 12, 20, 0, 4, 20, 12, 0, 6, 6, 0, 20, 0, 4,
+].map((visitors, index) => ({ minute: index + 1, visitors }));
 const defaultCountries: VisitorCountry[] = [
   { code: "US", name: "United States", visitors: 14 },
   { code: "GB", name: "United Kingdom", visitors: 4 },
@@ -57,7 +63,15 @@ function VisitorBar({ height, payload, width, x, y }: BarShapeProps) {
         fillOpacity={visitors === 0 ? 0.2 : opacity}
       />
       {visitors > 0 && barHeight > 4 && (
-        <rect x={barX} y={barY} width={barWidth} height={barHeight - 4} rx={2} fill="var(--color-visitors)" fillOpacity={opacity} />
+        <rect
+          x={barX}
+          y={barY}
+          width={barWidth}
+          height={barHeight - 4}
+          rx={2}
+          fill="var(--color-visitors)"
+          fillOpacity={opacity}
+        />
       )}
     </g>
   );
@@ -90,15 +104,27 @@ export function Chart02({
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span aria-hidden="true" className="relative flex size-2">
-              {isLive && <span className="absolute inline-flex size-full rounded-full bg-green-500 opacity-75 motion-safe:animate-ping" />}
-              <span className={cn("relative inline-flex size-2 rounded-full", isLive ? "bg-green-500" : "bg-muted-foreground")} />
+              {isLive && (
+                <span className="absolute inline-flex size-full rounded-full bg-green-500 opacity-75 motion-safe:animate-ping" />
+              )}
+              <span
+                className={cn(
+                  "relative inline-flex size-2 rounded-full",
+                  isLive ? "bg-green-500" : "bg-muted-foreground",
+                )}
+              />
             </span>
             <span>{isLive ? "Live" : "Paused"}</span>
           </div>
         </div>
         {data.length > 0 ? (
           <ChartContainer config={chartConfig} className="h-36 w-full text-blue-500">
-            <BarChart accessibilityLayer data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }} barCategoryGap={3}>
+            <BarChart
+              accessibilityLayer
+              data={data}
+              margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+              barCategoryGap={3}
+            >
               <XAxis dataKey="minute" hide />
               <YAxis hide domain={[0, Math.max(22, ...data.map((item) => item.visitors))]} />
               <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
@@ -119,7 +145,13 @@ export function Chart02({
                 index < countryData.length - 2 && "sm:border-b",
               )}
             >
-              <span aria-hidden="true" className={cn(`flag:${country.code.toUpperCase()}`, "shrink-0 rounded-xs text-lg ring-1 ring-foreground/10")} />
+              <span
+                aria-hidden="true"
+                className={cn(
+                  `flag:${country.code.toUpperCase()}`,
+                  "shrink-0 rounded-xs text-lg ring-1 ring-foreground/10",
+                )}
+              />
               <span className="min-w-0 flex-1 truncate text-sm">{country.name}</span>
               <span className="text-sm tabular-nums">{country.visitors.toLocaleString("en-US")}</span>
             </div>

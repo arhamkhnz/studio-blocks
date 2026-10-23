@@ -1,6 +1,13 @@
 import { ShoppingBag } from "lucide-react";
 
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@studio-blocks/blocks-ui/components/card";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@studio-blocks/blocks-ui/components/card";
 
 export function Kpi04() {
   return (

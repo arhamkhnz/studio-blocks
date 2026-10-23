@@ -16,7 +16,13 @@ const columnSpans = {
 } as const;
 
 type GalleryContentProps = {
-  blocks: { id: string; category: BlockCategory; colSpan: GalleryBlock["colSpan"]; rowSpan: number; preview: ReactNode }[];
+  blocks: {
+    id: string;
+    category: BlockCategory;
+    colSpan: GalleryBlock["colSpan"];
+    rowSpan: number;
+    preview: ReactNode;
+  }[];
 };
 
 export function GalleryContent({ blocks }: GalleryContentProps) {

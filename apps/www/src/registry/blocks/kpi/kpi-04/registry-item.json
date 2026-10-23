@@ -4,15 +4,9 @@
   "type": "registry:block",
   "title": "Total Orders",
   "description": "An orders KPI card with an icon and a weekly comparison.",
-  "categories": [
-    "kpi"
-  ],
-  "dependencies": [
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "card"
-  ],
+  "categories": ["kpi"],
+  "dependencies": ["lucide-react"],
+  "registryDependencies": ["card"],
   "files": [
     {
       "path": "kpi-04.tsx",

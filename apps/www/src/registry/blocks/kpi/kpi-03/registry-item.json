@@ -4,13 +4,8 @@
   "type": "registry:block",
   "title": "Net Worth",
   "description": "A net worth KPI card with a monthly comparison and growth badge.",
-  "categories": [
-    "kpi"
-  ],
-  "registryDependencies": [
-    "card",
-    "badge"
-  ],
+  "categories": ["kpi"],
+  "registryDependencies": ["card", "badge"],
   "files": [
     {
       "path": "kpi-03.tsx",

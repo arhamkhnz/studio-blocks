@@ -4,15 +4,9 @@
   "type": "registry:block",
   "title": "Income sources",
   "description": "An income breakdown card showing salary, freelance projects, and dividends.",
-  "categories": [
-    "charts"
-  ],
-  "dependencies": [
-    "cn"
-  ],
-  "registryDependencies": [
-    "card"
-  ],
+  "categories": ["charts"],
+  "dependencies": ["cn"],
+  "registryDependencies": ["card"],
   "files": [
     {
       "path": "chart-01.tsx",
