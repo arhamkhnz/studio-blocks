@@ -1,4 +1,4 @@
-import { access, readFile, readdir, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join, posix } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -105,19 +105,20 @@ for (const directory of directories) {
   items.push({ ...item, files });
 }
 
-await writeGenerated(
-  join(appDirectory, "registry.json"),
-  `${JSON.stringify(
-    {
-      $schema: "https://ui.shadcn.com/schema/registry.json",
-      name: "studio-blocks",
-      homepage: "https://studio-blocks.arhamkhnz.com",
-      items,
-    },
-    null,
-    2,
-  )}\n`,
-);
+const registry = `${JSON.stringify(
+  {
+    $schema: "https://ui.shadcn.com/schema/registry.json",
+    name: "studio-blocks",
+    homepage: "https://studio-blocks.arhamkhnz.com",
+    items,
+  },
+  null,
+  2,
+)}\n`;
+
+await writeGenerated(join(appDirectory, "registry.json"), registry);
+await mkdir(join(appDirectory, "public/r"), { recursive: true });
+await writeGenerated(join(appDirectory, "public/r/registry.json"), registry);
 
 await writeGenerated(
   join(appDirectory, "src/features/gallery/catalog.ts"),
