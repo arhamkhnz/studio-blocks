@@ -91,12 +91,12 @@ function GoalPreview() {
     <div style={cardStyle}>
       <div style={{ display: "flex", fontSize: 16 }}>Monthly Proposal Goal</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
-            <span style={{ fontSize: 30 }}>12</span>
-            <span style={{ fontSize: 14, color: colors.muted }}>sent</span>
+        <div style={{ display: "flex", height: 36, alignItems: "flex-end", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 6 }}>
+            <span style={{ fontSize: 30, lineHeight: 1 }}>12</span>
+            <span style={{ fontSize: 14, lineHeight: 1, marginBottom: 2, color: colors.muted }}>sent</span>
           </div>
-          <span style={{ fontSize: 12, color: colors.muted }}>18 target</span>
+          <span style={{ fontSize: 12, lineHeight: 1, marginBottom: 2, color: colors.muted }}>18 target</span>
         </div>
         <div style={{ display: "flex", gap: 2, height: 30 }}>
           {Array.from({ length: 42 }, (_, index) => (
