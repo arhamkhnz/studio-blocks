@@ -148,13 +148,13 @@ function IncomePreview() {
 }
 
 const unitlessStyles = new Set(["flex", "flexGrow", "flexShrink", "fontWeight", "lineHeight", "opacity"]);
+type LayoutProps = { style?: CSSProperties; children?: ReactNode; width?: number; height?: number };
 
 // Render each element at its output dimensions instead of enlarging a rasterized layout.
 function scaleLayout(node: ReactNode, scale: number): ReactNode {
-  if (!isValidElement<{ style?: CSSProperties; children?: ReactNode; width?: number; height?: number }>(node))
-    return node;
+  if (!isValidElement<LayoutProps>(node)) return node;
   if (typeof node.type === "function") {
-    const component = node.type as (props: typeof node.props) => ReactNode;
+    const component = node.type as (props: LayoutProps) => ReactNode;
     return scaleLayout(component(node.props), scale);
   }
   const style = Object.fromEntries(
@@ -242,7 +242,10 @@ export async function createSocialImage(scale: 1 | 2 = 1) {
     </div>
   );
 
-  return new ImageResponse(scaleLayout(layout, scale), {
+  const scaledLayout = scaleLayout(layout, scale);
+  if (!isValidElement(scaledLayout)) throw new Error("Social image layout must be a React element.");
+
+  return new ImageResponse(scaledLayout, {
     width: layoutSize.width * scale,
     height: layoutSize.height * scale,
     fonts: [
