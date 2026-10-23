@@ -1,8 +1,9 @@
-import type { CSSProperties, ReactNode } from "react";
+import { Children, cloneElement, isValidElement, type CSSProperties, type ReactNode } from "react";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
+import { getLogoDataUrl } from "@/lib/logo";
 import { site } from "@/lib/site";
 
 const layoutSize = { width: 1200, height: 630 };
@@ -146,15 +147,41 @@ function IncomePreview() {
   );
 }
 
+const unitlessStyles = new Set(["flex", "flexGrow", "flexShrink", "fontWeight", "lineHeight", "opacity"]);
+
+// Render each element at its output dimensions instead of enlarging a rasterized layout.
+function scaleLayout(node: ReactNode, scale: number): ReactNode {
+  if (!isValidElement<{ style?: CSSProperties; children?: ReactNode; width?: number; height?: number }>(node))
+    return node;
+  if (typeof node.type === "function") {
+    const component = node.type as (props: typeof node.props) => ReactNode;
+    return scaleLayout(component(node.props), scale);
+  }
+  const style = Object.fromEntries(
+    Object.entries(node.props.style ?? {}).map(([key, value]) => [
+      key,
+      typeof value === "number" && !unitlessStyles.has(key)
+        ? value * scale
+        : typeof value === "string"
+          ? value.replace(/(-?\d*\.?\d+)px/g, (_, number) => `${Number(number) * scale}px`)
+          : value,
+    ]),
+  );
+  return cloneElement(node, {
+    style,
+    ...(typeof node.props.width === "number" && { width: node.props.width * scale }),
+    ...(typeof node.props.height === "number" && { height: node.props.height * scale }),
+    children: Children.map(node.props.children, (child) => scaleLayout(child, scale)),
+  });
+}
+
 export async function createSocialImage(scale: 1 | 2 = 1) {
-  return new ImageResponse(
+  const layout = (
     <div
       style={{
         display: "flex",
         width: layoutSize.width,
         height: layoutSize.height,
-        transform: `scale(${scale})`,
-        transformOrigin: "top left",
         padding: 48,
         gap: 48,
         background: colors.background,
@@ -174,14 +201,8 @@ export async function createSocialImage(scale: 1 | 2 = 1) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <svg width={38} height={38} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="64" fill="#000" />
-            <g fill="#fff">
-              <rect x="12" y="12" width="40" height="12" rx="2" />
-              <rect x="12" y="28" width="12" height="24" rx="2" />
-              <rect x="28" y="28" width="24" height="24" rx="2" />
-            </g>
-          </svg>
+          {/* Match SVG resolution to its output size; scaleLayout applies the same dimensions to the image. */}
+          <img src={await getLogoDataUrl(38 * scale)} width={38} height={38} alt="" />
           <span style={{ fontSize: 30, letterSpacing: -1.5 }}>studio blocks</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", marginTop: 64 - gridInset, gap: 24 }}>
@@ -218,14 +239,15 @@ export async function createSocialImage(scale: 1 | 2 = 1) {
           <IncomePreview />
         </PreviewTile>
       </div>
-    </div>,
-    {
-      width: layoutSize.width * scale,
-      height: layoutSize.height * scale,
-      fonts: [
-        { name: "Timeless Sans", data: await regularFont, weight: 400, style: "normal" },
-        { name: "Timeless Sans", data: await lightFont, weight: 300, style: "normal" },
-      ],
-    },
+    </div>
   );
+
+  return new ImageResponse(scaleLayout(layout, scale), {
+    width: layoutSize.width * scale,
+    height: layoutSize.height * scale,
+    fonts: [
+      { name: "Timeless Sans", data: await regularFont, weight: 400, style: "normal" },
+      { name: "Timeless Sans", data: await lightFont, weight: 300, style: "normal" },
+    ],
+  });
 }
