@@ -19,6 +19,7 @@
     }
   ],
   "meta": {
+    "order": 70,
     "component": "Chart02",
     "preview": {
       "colSpan": 2,

@@ -57,10 +57,19 @@ async function findBlocks(parent) {
   return found;
 }
 
-const directories = (await findBlocks(sourceDirectory)).sort((left, right) => left.name.localeCompare(right.name));
+const directories = (await findBlocks(sourceDirectory))
+  .map((directory) => {
+    const item = JSON.parse(directory.manifest);
+    const order = item.meta?.order ?? Number.MAX_SAFE_INTEGER;
+    if (!Number.isSafeInteger(order) || order < 0) {
+      throw new Error(`${directory.name}: meta.order must be a non-negative safe integer.`);
+    }
+    return { ...directory, item, order };
+  })
+  .sort((left, right) => left.order - right.order || left.name.localeCompare(right.name));
 
 for (const directory of directories) {
-  const item = JSON.parse(directory.manifest);
+  const item = directory.item;
   delete item.$schema;
   const component = item.meta?.component;
   const category = item.categories?.[0];

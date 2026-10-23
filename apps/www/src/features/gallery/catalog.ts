@@ -2,12 +2,10 @@
 import type { GalleryBlock } from "@/features/gallery/types";
 import { Kpi01 as Block0 } from "@/registry/blocks/kpi/kpi-01/kpi-01";
 import { Kpi02 as Block1 } from "@/registry/blocks/kpi/kpi-02/kpi-02";
-import { Chart01 as Block2 } from "@/registry/blocks/charts/chart-01/chart-01";
-
-import { Kpi03 as Block3 } from "@/registry/blocks/kpi/kpi-03/kpi-03";
+import { Kpi03 as Block2 } from "@/registry/blocks/kpi/kpi-03/kpi-03";
+import { Chart01 as Block3 } from "@/registry/blocks/charts/chart-01/chart-01";
 import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
-
 import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
@@ -34,24 +32,24 @@ export const blocks = [
     previewMaxWidth: 384,
   },
   {
-    id: "chart-01",
-    title: "Income sources",
-    description: "An income breakdown card showing salary, freelance projects, and dividends.",
-    category: "charts",
-    component: Block2,
-    colSpan: 2,
-    rowSpan: 1,
-    previewMaxWidth: 768,
-  },
-  {
     id: "kpi-03",
     title: "Net Worth",
     description: "A net worth KPI card with a monthly comparison and growth badge.",
     category: "kpi",
-    component: Block3,
+    component: Block2,
     colSpan: 1,
     rowSpan: 1,
     previewMaxWidth: 384,
+  },
+  {
+    id: "chart-01",
+    title: "Income sources",
+    description: "An income breakdown card showing salary, freelance projects, and dividends.",
+    category: "charts",
+    component: Block3,
+    colSpan: 2,
+    rowSpan: 1,
+    previewMaxWidth: 768,
   },
   {
     id: "kpi-04",

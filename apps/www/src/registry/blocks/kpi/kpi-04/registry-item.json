@@ -14,6 +14,7 @@
     }
   ],
   "meta": {
+    "order": 50,
     "component": "Kpi04",
     "preview": {
       "colSpan": 1,

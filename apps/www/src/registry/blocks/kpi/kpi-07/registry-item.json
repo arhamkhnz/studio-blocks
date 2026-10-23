@@ -9,6 +9,7 @@
   "registryDependencies": ["card"],
   "files": [{ "path": "kpi-07.tsx", "type": "registry:component" }],
   "meta": {
+    "order": 90,
     "component": "Kpi07",
     "preview": { "colSpan": 1, "rowSpan": 1, "maxWidth": 384 }
   }

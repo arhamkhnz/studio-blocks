@@ -13,6 +13,7 @@
     }
   ],
   "meta": {
+    "order": 30,
     "component": "Kpi03",
     "preview": {
       "colSpan": 1,
