@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/publish-og-image.mjs",
     "start": "pnpm dlx wrangler@4 dev --config wrangler.jsonc",
     "registry:build": "node scripts/generate-registry.mjs && shadcn build registry.json --output public/r && node scripts/rewrite-registry-imports.mjs"
   },

@@ -13,6 +13,10 @@ pnpm start
 
 The build runs registry generation before Next.js exports the website to `apps/www/out`. `pnpm start` serves the existing export through Wrangler; it does not create a build. It uses `pnpm dlx` to run Wrangler.
 
+Both social images render as 1200 × 630 PNGs, matching the dimensions used in the Next.js documentation. After export, `scripts/publish-og-image.mjs` also copies the OG image to `out/og-image.png` for direct downloads.
+
+The separate `/readme-image.png` route renders the same composition at 2400 × 1260. It is prerendered during static export and used by the README, so it refreshes with each build without committing an image snapshot. The shared layout lives in `src/lib/social-image.tsx`.
+
 ## Cloudflare Workers Builds
 
 | Setting        | Value                                                  |
@@ -35,6 +39,7 @@ Check these endpoints after deployment:
 - `/r/kpi-01.json`: installable item, with source and dependencies.
 - `/r/chart-02.json`: visitor chart, including its `flags.css` file.
 - `/opengraph-image` and `/twitter-image`: generated social images.
+- `/readme-image.png`: higher-resolution README preview.
 - `/sitemap.xml` and `/robots.txt`: search metadata.
 
 Install an item into a separate initialized shadcn project to check the public registry end to end:

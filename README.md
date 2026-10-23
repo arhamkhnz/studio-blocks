@@ -10,7 +10,7 @@
   </p>
 </div>
 
-[![Studio Blocks preview](https://studio-blocks.arhamkhnz.com/opengraph-image)](https://studio-blocks.arhamkhnz.com)
+[![Studio Blocks preview](https://studio-blocks.arhamkhnz.com/readme-image.png)](https://studio-blocks.arhamkhnz.com)
 
 ## About
 
