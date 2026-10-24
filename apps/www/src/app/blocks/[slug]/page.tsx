@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteSidebar } from "@/components/site-sidebar";
 import { blockCategories } from "@/features/filters/block-categories";
 import { blocks } from "@/features/gallery/catalog";
@@ -96,6 +97,7 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
           }
         />
       </article>
+      <SiteFooter className="lg:hidden" />
     </main>
   );
 }

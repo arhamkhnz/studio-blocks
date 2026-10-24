@@ -15,7 +15,7 @@ export function SiteSidebar({
         <h1 className="text-4xl font-light tracking-tight text-balance lg:text-3xl">{title}</h1>
         <p className="max-w-64 text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
-      <SiteFooter />
+      <SiteFooter className="hidden lg:block" />
     </aside>
   );
 }

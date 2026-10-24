@@ -1,6 +1,8 @@
-export function SiteFooter() {
+import { cn } from "cn";
+
+export function SiteFooter({ className }: { className?: string }) {
   return (
-    <footer className="text-xs text-muted-foreground lg:mt-auto">
+    <footer className={cn("text-xs text-muted-foreground lg:mt-auto", className)}>
       built by{" "}
       <a
         href="https://github.com/arhamkhnz"

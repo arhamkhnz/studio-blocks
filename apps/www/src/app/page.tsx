@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { SiteFooter } from "@/components/site-footer";
 import { SiteSidebar } from "@/components/site-sidebar";
 import { BlocksGallery } from "@/features/gallery/blocks-gallery";
 import { site } from "@/lib/site";
@@ -40,6 +41,7 @@ export default function Page() {
       />
       <SiteSidebar />
       <BlocksGallery />
+      <SiteFooter className="lg:hidden" />
     </main>
   );
 }
