@@ -218,7 +218,7 @@
       "name": "chart-03",
       "type": "registry:block",
       "title": "API Availability",
-      "description": "An API availability card with daily uptime history, service status, and selectable incident details.",
+      "description": "An API availability card with daily uptime history, service status, and selectable daily details.",
       "categories": ["charts"],
       "dependencies": ["cn"],
       "registryDependencies": ["card"],

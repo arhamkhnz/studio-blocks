@@ -96,7 +96,7 @@ export const blocks = [
   {
     id: "chart-03",
     title: "API Availability",
-    description: "An API availability card with daily uptime history, service status, and selectable incident details.",
+    description: "An API availability card with daily uptime history, service status, and selectable daily details.",
     category: "charts",
     component: Block9,
     colSpan: 1,

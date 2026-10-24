@@ -18,7 +18,6 @@ import "./flags.css";
 export type VisitorActivity = { minute: number; visitors: number };
 export type VisitorCountry = { code: string; name: string; visitors: number };
 export type Chart02Props = ComponentProps<typeof Card> & {
-  title?: string;
   activity?: VisitorActivity[];
   countries?: VisitorCountry[];
   visitorsPerMinute?: number;
@@ -78,7 +77,6 @@ function VisitorBar({ height, payload, width, x, y }: BarShapeProps) {
 }
 
 export function Chart02({
-  title = "Realtime Visitors",
   activity = defaultActivity,
   countries = defaultCountries,
   visitorsPerMinute,
@@ -93,7 +91,7 @@ export function Chart02({
   return (
     <Card {...props}>
       <CardHeader>
-        <CardTitle className="font-normal">{title}</CardTitle>
+        <CardTitle className="font-normal">Realtime Visitors</CardTitle>
         {action && <CardAction>{action}</CardAction>}
       </CardHeader>
       <CardContent className="@container flex flex-col gap-4">

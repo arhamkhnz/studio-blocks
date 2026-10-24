@@ -1,25 +1,13 @@
-import type { ComponentProps } from "react";
 import { Waypoints } from "lucide-react";
 
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@studio-blocks/blocks-ui/components/card";
 import { Progress } from "@studio-blocks/blocks-ui/components/progress";
 
-export type Kpi06Props = ComponentProps<typeof Card> & {
-  title?: string;
-  used?: number;
-  limit?: number;
-};
-
-export function Kpi06({ title = "API requests", used = 24500, limit = 50000, ...props }: Kpi06Props) {
-  const usage = Number.isFinite(used) ? Math.max(0, used) : 0;
-  const quota = Number.isFinite(limit) ? Math.max(0, limit) : 0;
-  const percentage = quota > 0 ? Math.min(100, (usage / quota) * 100) : 0;
-  const format = (value: number) => value.toLocaleString("en-US");
-
+export function Kpi06() {
   return (
-    <Card {...props}>
+    <Card>
       <CardHeader>
-        <CardTitle className="text-sm font-normal">{title}</CardTitle>
+        <CardTitle className="text-sm font-normal">API requests</CardTitle>
         <CardAction>
           <div className="flex size-7 items-center justify-center rounded-md bg-muted text-muted-foreground">
             <Waypoints aria-hidden="true" className="size-4" />
@@ -27,16 +15,14 @@ export function Kpi06({ title = "API requests", used = 24500, limit = 50000, ...
         </CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        <div className="text-3xl leading-none tracking-tight tabular-nums">{format(usage)}</div>
+        <div className="text-3xl leading-none tracking-tight tabular-nums">24,500</div>
         <Progress
-          value={percentage}
-          aria-label={`${title} quota usage`}
-          aria-valuetext={`${format(usage)} of ${format(quota)} requests used`}
+          value={49}
+          aria-label="API requests quota usage"
+          aria-valuetext="24,500 of 50,000 requests used"
           className="**:data-[slot=progress-indicator]:bg-indigo-500"
         />
-        <p className="text-xs text-muted-foreground">
-          {format(usage)} of {format(quota)} requests used
-        </p>
+        <p className="text-xs text-muted-foreground">24,500 of 50,000 requests used</p>
       </CardContent>
     </Card>
   );

@@ -18,7 +18,6 @@ export type IncomeItem = {
 };
 
 export type Chart01Props = ComponentProps<typeof Card> & {
-  title?: string;
   items?: IncomeItem[];
   currency?: string;
   locale?: string;
@@ -30,13 +29,7 @@ const defaultItems: IncomeItem[] = [
   { label: "Dividends and interest", amount: 765, color: "emerald" },
 ];
 
-export function Chart01({
-  title = "Income sources",
-  items = defaultItems,
-  currency = "USD",
-  locale = "en-US",
-  ...props
-}: Chart01Props) {
+export function Chart01({ items = defaultItems, currency = "USD", locale = "en-US", ...props }: Chart01Props) {
   const sources = items.filter((item) => Number.isFinite(item.amount) && item.amount >= 0);
   const total = sources.reduce((sum, item) => sum + item.amount, 0);
   const formatter = new Intl.NumberFormat(locale, { style: "currency", currency });
@@ -44,7 +37,7 @@ export function Chart01({
   return (
     <Card {...props}>
       <CardHeader>
-        <CardTitle className="font-normal">{title}</CardTitle>
+        <CardTitle className="font-normal">Income sources</CardTitle>
       </CardHeader>
       <CardContent className="@container flex flex-col gap-6">
         <div className="grid grid-cols-1 gap-3 @md:auto-cols-fr @md:grid-flow-col">

@@ -5,32 +5,18 @@ import { cn } from "cn";
 
 import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@studio-blocks/blocks-ui/components/card";
 
-export type AvailabilityDay = {
-  id: string;
-  label: string;
-  /** Percentage from 0 to 100. Use null when this day has no measurements. */
-  uptime: number | null;
-  incident?: string;
-};
-
 export type AvailabilityStatus = "operational" | "degraded" | "outage" | "maintenance" | "unknown";
 
 export type Chart03Props = ComponentProps<typeof Card> & {
-  title?: string;
-  /** Equal-length daily buckets, ordered oldest first, with unique IDs. */
-  days?: readonly AvailabilityDay[];
+  /** Daily uptime percentages, oldest first. Use null for a day without measurements. */
+  days?: readonly (number | null)[];
   /** Current service status, independent of historical incidents. */
   status?: AvailabilityStatus;
   periodLabel?: string;
-  onDaySelect?: (day: AvailabilityDay) => void;
+  onDaySelect?: (uptime: number | null, index: number) => void;
 };
 
-const exampleDays: AvailabilityDay[] = Array.from({ length: 30 }, (_, index) => ({
-  id: `day-${index + 1}`,
-  label: index === 29 ? "Today" : `${29 - index} ${index === 28 ? "day" : "days"} ago`,
-  uptime: index === 10 ? 99.375 : 100,
-  ...(index === 10 && { incident: "9-minute partial outage. Resolved." }),
-}));
+const exampleDays = Array.from({ length: 30 }, (_, index) => (index === 10 ? 99.375 : 100));
 
 const statuses = {
   operational: { label: "Operational", color: "bg-green-500" },
@@ -44,37 +30,41 @@ function normalizeUptime(value: number | null) {
   return typeof value === "number" && Number.isFinite(value) ? Math.min(100, Math.max(0, value)) : null;
 }
 
-function daySummary(day: AvailabilityDay) {
-  const uptime = normalizeUptime(day.uptime);
+function daySummary(uptime: number | null) {
   if (uptime === null) return "No measurements available.";
-  return day.incident ?? (uptime === 100 ? "No incidents reported." : `${uptime.toFixed(2)}% availability.`);
+  return uptime === 100 ? "No incidents reported." : `${uptime.toFixed(2)}% availability.`;
 }
 
 export function Chart03({
-  title = "API availability",
   days = exampleDays,
   status = "operational",
   periodLabel = `over the last ${days.length} ${days.length === 1 ? "day" : "days"}`,
   onDaySelect,
   ...props
 }: Chart03Props) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const selectedDay = days.find((day) => day.id === selectedId) ?? days.at(-1);
-  const measurements = days.map((day) => normalizeUptime(day.uptime)).filter((value) => value !== null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const values = days.map(normalizeUptime);
+  const activeIndex = selectedIndex !== null && selectedIndex < values.length ? selectedIndex : values.length - 1;
+  const measurements = values.filter((value) => value !== null);
   const availability = measurements.length
     ? measurements.reduce((total, value) => total + value, 0) / measurements.length
     : null;
   const currentStatus = statuses[status] ?? statuses.unknown;
 
-  function selectDay(day: AvailabilityDay) {
-    setSelectedId(day.id);
-    onDaySelect?.(day);
+  function dayLabel(index: number) {
+    const daysAgo = days.length - index - 1;
+    return daysAgo === 0 ? "Today" : `${daysAgo} ${daysAgo === 1 ? "day" : "days"} ago`;
+  }
+
+  function selectDay(index: number) {
+    setSelectedIndex(index);
+    onDaySelect?.(values[index] ?? null, index);
   }
 
   return (
     <Card {...props}>
       <CardHeader className="items-center">
-        <CardDescription>{title}</CardDescription>
+        <CardDescription>API availability</CardDescription>
         <CardAction className="row-span-1 self-center">
           <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <span aria-hidden="true" className={cn("size-1.5 rounded-full", currentStatus.color)} />
@@ -93,23 +83,23 @@ export function Chart03({
           <div className="flex flex-col gap-2">
             <div
               role="group"
-              aria-label={`${title} daily history`}
+              aria-label="API availability daily history"
               className="flex h-9"
               style={{ gap: `min(0.25rem, ${100 / (days.length * 3)}%)` }}
             >
-              {days.map((day) => {
-                const uptime = normalizeUptime(day.uptime);
+              {values.map((uptime, index) => {
+                const label = `${dayLabel(index)}: ${daySummary(uptime)}`;
                 return (
                   <button
-                    key={day.id}
+                    key={index}
                     type="button"
-                    aria-label={`${day.label}: ${daySummary(day)}`}
-                    aria-pressed={day.id === selectedDay?.id}
-                    title={`${day.label}: ${daySummary(day)}`}
-                    onClick={() => selectDay(day)}
+                    aria-label={label}
+                    aria-pressed={index === activeIndex}
+                    title={label}
+                    onClick={() => selectDay(index)}
                     className={cn(
                       "min-w-0 flex-1 rounded-xs transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                      day.id === selectedDay?.id ? "opacity-100" : "opacity-60",
+                      index === activeIndex ? "opacity-100" : "opacity-60",
                       uptime === null
                         ? "bg-muted-foreground/25"
                         : uptime === 100
@@ -123,13 +113,15 @@ export function Chart03({
               })}
             </div>
             <div className="flex justify-between gap-3 text-xs wrap-break-word text-muted-foreground">
-              <span>{days[0]?.label}</span>
-              {days.length > 1 && <span>{days.at(-1)?.label}</span>}
+              <span>{dayLabel(0)}</span>
+              {days.length > 1 && <span>Today</span>}
             </div>
           </div>
         ) : null}
         <p role="status" aria-live="polite" className="border-t pt-3 text-xs leading-relaxed text-muted-foreground">
-          {selectedDay ? `${selectedDay.label} · ${daySummary(selectedDay)}` : "No availability history yet."}
+          {activeIndex >= 0
+            ? `${dayLabel(activeIndex)} · ${daySummary(values[activeIndex] ?? null)}`
+            : "No availability history yet."}
           {measurements.length > 0 && measurements.length < days.length && (
             <span className="block">
               {measurements.length} of {days.length} days measured.
