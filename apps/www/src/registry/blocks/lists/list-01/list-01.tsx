@@ -25,9 +25,8 @@ import { ToggleGroup, ToggleGroupItem } from "@studio-blocks/blocks-ui/component
 export type Renewal = {
   name: string;
   plan?: string;
-  /** Optional brand icon. Entries without an icon show their first initial. */
   icon?: ComponentType<SVGProps<SVGSVGElement>>;
-  /** Amount in major currency units, for example 129.99 for $129.99. */
+  /** Amount in currency units, not cents. */
   amount: number;
 };
 
@@ -46,12 +45,11 @@ export type RenewalWeek = {
 };
 
 export type List01Props = ComponentProps<typeof Card> & {
-  /** Display-ready week with grouped renewals and precomputed totals. */
+  /** Totals are supplied by the caller. */
   data?: RenewalWeek;
   currency?: string;
 };
 
-// Example renewal amounts illustrate team subscriptions, not current service pricing.
 const exampleWeek: RenewalWeek = {
   rangeLabel: "Oct 25 - 31",
   total: 2209,

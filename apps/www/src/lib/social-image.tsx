@@ -33,7 +33,6 @@ const cardStyle: CSSProperties = {
   background: "white",
 };
 
-// ImageResponse uses Flexbox and inline styles; these are static previews of the blocks.
 function PreviewTile({ children, style }: { children: ReactNode; style?: CSSProperties }) {
   return (
     <div style={{ display: "flex", alignItems: "center", padding: 20, background: colors.preview, ...style }}>
@@ -201,7 +200,6 @@ export async function createSocialImage(scale: 1 | 2 = 1) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          {/* Match SVG resolution to its output size; scaleLayout applies the same dimensions to the image. */}
           <img src={await getLogoDataUrl(38 * scale)} width={38} height={38} alt="" />
           <span style={{ fontSize: 30, letterSpacing: -1.5 }}>studio blocks</span>
         </div>

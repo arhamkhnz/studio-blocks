@@ -12,7 +12,7 @@ import {
   ChartTooltipContent,
 } from "@studio-blocks/blocks-ui/components/chart";
 
-// Country flag classes require this stylesheet, which is shipped beside the component in the registry.
+// Include flags.css when copying this component.
 import "./flags.css";
 
 export type VisitorActivity = { minute: number; visitors: number };
@@ -25,7 +25,6 @@ export type Chart02Props = ComponentProps<typeof Card> & {
   action?: ReactNode;
 };
 
-// Demo values are static. Supply updated activity and country counts from your own data source.
 const defaultActivity = [
   0, 6, 12, 20, 12, 0, 6, 6, 0, 4, 0, 20, 15, 4, 6, 0, 4, 12, 20, 0, 4, 20, 12, 0, 6, 6, 0, 20, 0, 4,
 ].map((visitors, index) => ({ minute: index + 1, visitors }));
