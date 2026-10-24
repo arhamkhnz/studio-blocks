@@ -17,8 +17,7 @@
     "component": "Kpi03",
     "preview": {
       "colSpan": 1,
-      "rowSpan": 1,
-      "maxWidth": 384
+      "rowSpan": 1
     }
   }
 }

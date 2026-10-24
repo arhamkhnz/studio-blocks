@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteSidebar } from "@/components/site-sidebar";
 import { blockCategories } from "@/features/filters/block-categories";
 import { blocks } from "@/features/gallery/catalog";
+import { PreviewFrame } from "@/features/gallery/preview-frame";
 import { BlockInstallation } from "@/features/installation/block-installation";
 import { getInstallation } from "@/features/installation/get-installation";
 import { site } from "@/lib/site";
@@ -86,13 +87,10 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
         <BlockInstallation
           {...installation}
           preview={
-            <section
-              aria-label={`${block.title} preview`}
-              className="flex min-h-96 flex-1 items-center justify-center bg-preview p-6 sm:min-h-128 sm:p-10"
-            >
-              <div className="w-full" style={{ maxWidth: block.previewMaxWidth }}>
+            <section aria-label={`${block.title} preview`} className="flex min-w-0 flex-1 flex-col">
+              <PreviewFrame colSpan={block.colSpan} interactive className="min-h-96 flex-1 sm:min-h-128">
                 <Component />
-              </div>
+              </PreviewFrame>
             </section>
           }
         />

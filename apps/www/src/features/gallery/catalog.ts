@@ -20,7 +20,6 @@ export const blocks = [
     component: Block0,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "kpi-02",
@@ -30,7 +29,6 @@ export const blocks = [
     component: Block1,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "kpi-03",
@@ -40,7 +38,6 @@ export const blocks = [
     component: Block2,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "chart-01",
@@ -50,7 +47,6 @@ export const blocks = [
     component: Block3,
     colSpan: 2,
     rowSpan: 1,
-    previewMaxWidth: 768,
   },
   {
     id: "kpi-04",
@@ -60,7 +56,6 @@ export const blocks = [
     component: Block4,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "kpi-05",
@@ -70,7 +65,6 @@ export const blocks = [
     component: Block5,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "chart-02",
@@ -80,7 +74,6 @@ export const blocks = [
     component: Block6,
     colSpan: 2,
     rowSpan: 2,
-    previewMaxWidth: 520,
   },
   {
     id: "kpi-06",
@@ -90,7 +83,6 @@ export const blocks = [
     component: Block7,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "kpi-07",
@@ -100,7 +92,6 @@ export const blocks = [
     component: Block8,
     colSpan: 1,
     rowSpan: 1,
-    previewMaxWidth: 384,
   },
   {
     id: "chart-03",
@@ -109,7 +100,6 @@ export const blocks = [
     category: "charts",
     component: Block9,
     colSpan: 1,
-    rowSpan: 1,
-    previewMaxWidth: 384,
+    rowSpan: 2,
   },
 ] satisfies GalleryBlock[];

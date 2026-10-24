@@ -8,16 +8,9 @@
       "type": "registry:block",
       "title": "Total Revenue",
       "description": "A revenue KPI card with a value, trend, and description.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card",
-        "badge"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "badge"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-01/kpi-01.tsx",
@@ -29,8 +22,7 @@
         "component": "Kpi01",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -39,16 +31,9 @@
       "type": "registry:block",
       "title": "Lead Pipeline Value",
       "description": "A lead pipeline KPI card with a monthly comparison and growth indicator.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card",
-        "badge"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "badge"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-02/kpi-02.tsx",
@@ -60,8 +45,7 @@
         "component": "Kpi02",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -70,13 +54,8 @@
       "type": "registry:block",
       "title": "Net Worth",
       "description": "A net worth KPI card with a monthly comparison and growth badge.",
-      "categories": [
-        "kpi"
-      ],
-      "registryDependencies": [
-        "card",
-        "badge"
-      ],
+      "categories": ["kpi"],
+      "registryDependencies": ["card", "badge"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-03/kpi-03.tsx",
@@ -88,8 +67,7 @@
         "component": "Kpi03",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -98,15 +76,9 @@
       "type": "registry:block",
       "title": "Income sources",
       "description": "An income breakdown card showing salary, freelance projects, and dividends.",
-      "categories": [
-        "charts"
-      ],
-      "dependencies": [
-        "cn"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
+      "categories": ["charts"],
+      "dependencies": ["cn"],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "src/registry/blocks/charts/chart-01/chart-01.tsx",
@@ -118,8 +90,7 @@
         "component": "Chart01",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 1,
-          "maxWidth": 768
+          "rowSpan": 1
         }
       }
     },
@@ -128,15 +99,9 @@
       "type": "registry:block",
       "title": "Total Orders",
       "description": "An orders KPI card with an icon and a weekly comparison.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-04/kpi-04.tsx",
@@ -148,8 +113,7 @@
         "component": "Kpi04",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -158,16 +122,9 @@
       "type": "registry:block",
       "title": "Unique Visitors",
       "description": "A visitor KPI card with a previous-period comparison and growth badge.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card",
-        "badge"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "badge"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-05/kpi-05.tsx",
@@ -179,8 +136,7 @@
         "component": "Kpi05",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -189,17 +145,9 @@
       "type": "registry:block",
       "title": "Realtime Visitors",
       "description": "A visitor activity chart with a live status indicator and country breakdown.",
-      "categories": [
-        "charts"
-      ],
-      "dependencies": [
-        "cn",
-        "recharts@^3.8.0"
-      ],
-      "registryDependencies": [
-        "card",
-        "chart"
-      ],
+      "categories": ["charts"],
+      "dependencies": ["cn", "recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart"],
       "files": [
         {
           "path": "src/registry/blocks/charts/chart-02/chart-02.tsx",
@@ -216,8 +164,7 @@
         "component": "Chart02",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2,
-          "maxWidth": 520
+          "rowSpan": 2
         }
       }
     },
@@ -226,16 +173,9 @@
       "type": "registry:block",
       "title": "API Usage",
       "description": "An API usage KPI card with a request count and quota progress.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "card",
-        "progress"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card", "progress"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-06/kpi-06.tsx",
@@ -247,8 +187,7 @@
         "component": "Kpi06",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -257,15 +196,9 @@
       "type": "registry:block",
       "title": "Monthly Proposal Goal",
       "description": "A goal progress KPI card with green segments and a configurable target.",
-      "categories": [
-        "kpi"
-      ],
-      "dependencies": [
-        "cn"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
+      "categories": ["kpi"],
+      "dependencies": ["cn"],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "src/registry/blocks/kpi/kpi-07/kpi-07.tsx",
@@ -277,8 +210,7 @@
         "component": "Kpi07",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 1
         }
       }
     },
@@ -287,15 +219,9 @@
       "type": "registry:block",
       "title": "API Availability",
       "description": "An API availability card with daily uptime history, service status, and selectable incident details.",
-      "categories": [
-        "charts"
-      ],
-      "dependencies": [
-        "cn"
-      ],
-      "registryDependencies": [
-        "card"
-      ],
+      "categories": ["charts"],
+      "dependencies": ["cn"],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "src/registry/blocks/charts/chart-03/chart-03.tsx",
@@ -307,8 +233,7 @@
         "component": "Chart03",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1,
-          "maxWidth": 384
+          "rowSpan": 2
         }
       }
     }

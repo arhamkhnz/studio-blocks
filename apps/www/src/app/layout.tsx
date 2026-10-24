@@ -48,8 +48,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${fontSans.variable} overscroll-none`}>
-      <body className="overscroll-none antialiased">{children}</body>
+    <html lang="en" className={`${fontSans.variable} overscroll-x-auto overscroll-y-none`}>
+      <body className="overscroll-x-auto overscroll-y-none antialiased">{children}</body>
     </html>
   );
 }

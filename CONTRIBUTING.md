@@ -92,8 +92,7 @@ Create `registry-item.json` next to the component:
     "component": "Kpi08",
     "preview": {
       "colSpan": 1,
-      "rowSpan": 1,
-      "maxWidth": 384
+      "rowSpan": 1
     }
   }
 }
@@ -101,20 +100,21 @@ Create `registry-item.json` next to the component:
 
 Replace the example's dependencies with the ones the block actually imports.
 
-| Field                   | Meaning                                                                                                                                             |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                  | Must match the block folder and public installation ID.                                                                                             |
-| `categories`            | Use the gallery category ID as the first entry. Available IDs are `kpi`, `charts`, `forms`, `tables`, `lists`, and `navigation`.                    |
-| `dependencies`          | npm packages imported by the installed source, such as `cn`, `lucide-react`, or `recharts`.                                                         |
-| `registryDependencies`  | Standard shadcn primitives the block needs, such as `card`, `badge`, or `progress`.                                                                 |
-| `files`                 | Paths relative to this manifest. List the preview component's `.tsx` file first. Include every supporting file required after installation.         |
-| `meta.component`        | The named React export used for the preview and generated usage example.                                                                            |
-| `meta.order`            | Optional non-negative integer. Lower values appear first; ties sort by block ID. Missing values go last. Existing values leave gaps for insertions. |
-| `meta.preview.colSpan`  | Width of 1, 2, or 3 gallery columns. Defaults to 1.                                                                                                 |
-| `meta.preview.rowSpan`  | Positive integer controlling gallery height. Defaults to 1.                                                                                         |
-| `meta.preview.maxWidth` | Maximum width in pixels of the component inside its preview. Defaults to 384.                                                                       |
+| Field                  | Meaning                                                                                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                 | Must match the block folder and public installation ID.                                                                                             |
+| `categories`           | Use the gallery category ID as the first entry. Available IDs are `kpi`, `charts`, `forms`, `tables`, `lists`, and `navigation`.                    |
+| `dependencies`         | npm packages imported by the installed source, such as `cn`, `lucide-react`, or `recharts`.                                                         |
+| `registryDependencies` | Standard shadcn primitives the block needs, such as `card`, `badge`, or `progress`.                                                                 |
+| `files`                | Paths relative to this manifest. List the preview component's `.tsx` file first. Include every supporting file required after installation.         |
+| `meta.component`       | The named React export used for the preview and generated usage example.                                                                            |
+| `meta.order`           | Optional non-negative integer. Lower values appear first; ties sort by block ID. Missing values go last. Existing values leave gaps for insertions. |
+| `meta.preview.colSpan` | Width of 1, 2, or 3 gallery columns. Defaults to 1.                                                                                                 |
+| `meta.preview.rowSpan` | Positive integer controlling gallery height. Defaults to 1.                                                                                         |
 
-At the `sm` breakpoint and above, one gallery row is 252px with a 12px gap: two rows are 516px. Mobile uses content height. Column spans adapt to the available two- or three-column grid. The dense grid can place later blocks into gaps, so visual placement is not always identical to source order.
+Single-column previews have a 256px minimum height and grow for taller content. The grid uses its own container width: two columns at 38rem and three at 58rem. With multiple columns, rows stay fixed at 252px with a 12px gap: two rows are 516px. Row and column spans apply only in the multi-column layout. The dense grid can place later blocks into gaps, so visual placement is not always identical to source order.
+
+`PreviewFrame` uses CSS for shared width limits, padding, and centering. It does not measure or scale content with JavaScript. Single-column and detail previews grow naturally; multi-column previews keep their assigned row height. Give taller blocks enough `rowSpan` to fit at their normal text size. Preview metadata controls only `colSpan` and `rowSpan`; do not add per-block `maxWidth` or `scale` settings. Use container queries inside responsive blocks.
 
 A block spanning two columns does not need its own fixed width. Keep its component responsive and use preview metadata for gallery sizing.
 

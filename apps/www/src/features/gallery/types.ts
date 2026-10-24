@@ -10,5 +10,4 @@ export type GalleryBlock = {
   component: ComponentType;
   colSpan: 1 | 2 | 3;
   rowSpan: number;
-  previewMaxWidth: number;
 };

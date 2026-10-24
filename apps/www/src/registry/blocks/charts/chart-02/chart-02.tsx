@@ -96,7 +96,7 @@ export function Chart02({
         <CardTitle className="font-normal">{title}</CardTitle>
         {action && <CardAction>{action}</CardAction>}
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="@container flex flex-col gap-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="flex items-baseline gap-1">
             <span className="text-2xl leading-none tracking-tight tabular-nums">{total.toLocaleString("en-US")}</span>
@@ -118,12 +118,12 @@ export function Chart02({
           </div>
         </div>
         {data.length > 0 ? (
-          <ChartContainer config={chartConfig} className="h-36 w-full text-blue-500">
+          <ChartContainer config={chartConfig} className="h-36 w-full">
             <BarChart
               accessibilityLayer
               data={data}
               margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-              barCategoryGap={3}
+              barCategoryGap="15%"
             >
               <XAxis dataKey="minute" hide />
               <YAxis hide domain={[0, Math.max(22, ...data.map((item) => item.visitors))]} />
@@ -134,15 +134,15 @@ export function Chart02({
         ) : (
           <p className="flex h-36 items-center justify-center text-sm text-muted-foreground">No visitor activity.</p>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2">
+        <div className="grid grid-cols-1 @xs:grid-cols-2">
           {countryData.map((country, index) => (
             <div
               key={country.code}
               className={cn(
                 "flex min-w-0 items-center gap-3 border-border/50 py-3",
-                index % 2 === 0 ? "sm:border-r sm:pr-5" : "sm:pl-5",
-                index < countryData.length - 1 && "border-b sm:border-b-0",
-                index < countryData.length - 2 && "sm:border-b",
+                index % 2 === 0 ? "@xs:border-r @xs:pr-5" : "@xs:pl-5",
+                index < countryData.length - 1 && "border-b @xs:border-b-0",
+                index < countryData.length - 2 && "@xs:border-b",
               )}
             >
               <span

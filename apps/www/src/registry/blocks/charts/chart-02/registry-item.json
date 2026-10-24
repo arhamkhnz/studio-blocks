@@ -23,8 +23,7 @@
     "component": "Chart02",
     "preview": {
       "colSpan": 2,
-      "rowSpan": 2,
-      "maxWidth": 520
+      "rowSpan": 2
     }
   }
 }

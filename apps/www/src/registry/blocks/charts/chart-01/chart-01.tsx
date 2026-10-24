@@ -46,8 +46,8 @@ export function Chart01({
       <CardHeader>
         <CardTitle className="font-normal">{title}</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 gap-3 md:auto-cols-fr md:grid-flow-col">
+      <CardContent className="@container flex flex-col gap-6">
+        <div className="grid grid-cols-1 gap-3 @md:auto-cols-fr @md:grid-flow-col">
           {sources.map((item, index) => (
             <section key={`${item.label}-${index}`} className="flex min-w-0 items-start gap-2">
               <span aria-hidden="true" className={cn("mt-1 size-2 shrink-0 rounded-full border", colors[item.color])} />
