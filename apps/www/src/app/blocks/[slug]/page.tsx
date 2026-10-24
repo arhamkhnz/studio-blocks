@@ -56,13 +56,24 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
       <SiteSidebar title={block.title} description={block.description} />
       <article className="flex min-w-0 flex-col gap-6">
         <div className="flex min-h-8 flex-wrap items-center justify-between gap-4">
-          <ol aria-label="Block details" className="flex items-center gap-2 text-sm text-muted-foreground">
-            <li>{category?.label}</li>
-            <li aria-hidden="true" className="text-foreground/25">
-              /
-            </li>
-            <li className="tabular-nums">{block.id.toUpperCase()}</li>
-          </ol>
+          <nav aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li>
+                <Link
+                  href={`/?category=${block.category}`}
+                  className="transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                >
+                  {category?.label}
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-foreground/25">
+                /
+              </li>
+              <li aria-current="page" className="tabular-nums">
+                {block.id.toUpperCase()}
+              </li>
+            </ol>
+          </nav>
           <Link
             href="/"
             className="ml-auto flex h-8 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"

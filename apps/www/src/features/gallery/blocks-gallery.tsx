@@ -4,7 +4,7 @@ import { GalleryContent } from "@/features/gallery/gallery-content";
 
 export function BlocksGallery() {
   return (
-    <section aria-label="Blocks" className="min-w-0">
+    <section aria-label="Blocks" className="flex min-w-0 flex-col">
       <GalleryContent
         blocks={blocks.map((block) => ({
           id: block.id,

@@ -127,9 +127,41 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--muted-foreground) 40%, var(--background)) transparent;
   }
 
   body {
     @apply bg-background font-sans text-foreground;
+  }
+
+  @supports not (scrollbar-width: thin) {
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border: 2px solid transparent;
+      border-radius: 9999px;
+      background: color-mix(in oklab, var(--muted-foreground) 40%, var(--background));
+      background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: color-mix(in oklab, var(--muted-foreground) 60%, var(--background));
+    }
+  }
+
+  @media (forced-colors: active), (pointer: coarse) {
+    * {
+      scrollbar-width: auto;
+      scrollbar-color: auto;
+    }
   }
 }
