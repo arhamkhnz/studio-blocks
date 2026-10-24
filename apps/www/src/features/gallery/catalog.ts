@@ -9,7 +9,8 @@ import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
-import { Chart03 as Block9 } from "@/registry/blocks/charts/chart-03/chart-03";
+import { List01 as Block9 } from "@/registry/blocks/lists/list-01/list-01";
+import { Chart03 as Block10 } from "@/registry/blocks/charts/chart-03/chart-03";
 
 export const blocks = [
   {
@@ -94,11 +95,21 @@ export const blocks = [
     rowSpan: 1,
   },
   {
+    id: "list-01",
+    title: "Upcoming Renewals",
+    description:
+      "A subscription renewal card with a seven-day selector, weekly totals, and service logos for each renewal.",
+    category: "lists",
+    component: Block9,
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
     id: "chart-03",
     title: "API Availability",
     description: "An API availability card with daily uptime history, service status, and selectable daily details.",
     category: "charts",
-    component: Block9,
+    component: Block10,
     colSpan: 1,
     rowSpan: 2,
   },

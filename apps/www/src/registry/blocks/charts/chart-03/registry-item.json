@@ -9,7 +9,7 @@
   "registryDependencies": ["card"],
   "files": [{ "path": "chart-03.tsx", "type": "registry:component" }],
   "meta": {
-    "order": 100,
+    "order": 120,
     "component": "Chart03",
     "preview": { "colSpan": 1, "rowSpan": 2 }
   }

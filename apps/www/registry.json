@@ -215,6 +215,29 @@
       }
     },
     {
+      "name": "list-01",
+      "type": "registry:block",
+      "title": "Upcoming Renewals",
+      "description": "A subscription renewal card with a seven-day selector, weekly totals, and service logos for each renewal.",
+      "categories": ["lists"],
+      "dependencies": ["cn", "date-fns@^4.4.0", "@thesvg/react@^3.4.1", "lucide-react"],
+      "registryDependencies": ["card", "toggle-group", "separator", "empty"],
+      "files": [
+        {
+          "path": "src/registry/blocks/lists/list-01/list-01.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "order": 110,
+        "component": "List01",
+        "preview": {
+          "colSpan": 2,
+          "rowSpan": 2
+        }
+      }
+    },
+    {
       "name": "chart-03",
       "type": "registry:block",
       "title": "API Availability",
@@ -229,7 +252,7 @@
         }
       ],
       "meta": {
-        "order": 100,
+        "order": 120,
         "component": "Chart03",
         "preview": {
           "colSpan": 1,
