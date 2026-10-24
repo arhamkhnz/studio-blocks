@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const appDirectory = fileURLToPath(new URL("../", import.meta.url));
 const sourceDirectory = "src/registry/blocks";
-const previewDefaults = { colSpan: 1, rowSpan: 1 };
+const previewDefaults = { colSpan: 1, rowSpan: 1, iframe: false };
 const items = [];
 const imports = [];
 const gallery = [];
@@ -13,7 +13,12 @@ const names = new Set();
 function getPreview(item) {
   const preview = { ...previewDefaults, ...item.meta?.preview };
 
-  if (![1, 2, 3].includes(preview.colSpan) || !Number.isSafeInteger(preview.rowSpan) || preview.rowSpan < 1) {
+  if (
+    ![1, 2, 3].includes(preview.colSpan) ||
+    !Number.isSafeInteger(preview.rowSpan) ||
+    preview.rowSpan < 1 ||
+    typeof preview.iframe !== "boolean"
+  ) {
     throw new Error(`${item.name}: invalid meta.preview settings.`);
   }
 
@@ -103,6 +108,7 @@ for (const directory of directories) {
     component: Block${index},
     colSpan: ${preview.colSpan},
     rowSpan: ${preview.rowSpan},
+    iframe: ${preview.iframe},
   },`);
   items.push({ ...item, files });
 }

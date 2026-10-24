@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-01",
+  "type": "registry:block",
+  "title": "Workspace Sidebar",
+  "description": "A compact workspace sidebar with grouped navigation, active links, Keyline icons, and organization settings.",
+  "categories": ["navigation"],
+  "dependencies": ["cn", "@keyline-icons/react@^2.1.0"],
+  "registryDependencies": ["sidebar"],
+  "files": [{ "path": "sidebar-01.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 130,
+    "component": "Sidebar01",
+    "preview": { "colSpan": 1, "rowSpan": 3, "iframe": true }
+  }
+}

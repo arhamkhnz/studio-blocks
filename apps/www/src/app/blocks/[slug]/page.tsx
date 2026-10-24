@@ -88,7 +88,12 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
           {...installation}
           preview={
             <section aria-label={`${block.title} preview`} className="flex min-w-0 flex-1 flex-col">
-              <PreviewFrame colSpan={block.colSpan} interactive className="min-h-96 flex-1 sm:min-h-128">
+              <PreviewFrame
+                colSpan={block.colSpan}
+                iframeSrc={block.iframe ? `/preview/${block.id}` : undefined}
+                interactive
+                className="min-h-96 flex-1 sm:min-h-128"
+              >
                 <Component />
               </PreviewFrame>
             </section>

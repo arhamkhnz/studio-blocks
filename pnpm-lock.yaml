@@ -23,6 +23,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.9.0
         version: 1.9.0(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@keyline-icons/react':
+        specifier: ^2.1.0
+        version: 2.1.0(react@19.3.1)
       '@studio-blocks/blocks-ui':
         specifier: workspace:*
         version: link:../../packages/blocks-ui
@@ -90,6 +93,9 @@ importers:
       cn:
         specifier: ^0.5.0
         version: 0.5.0
+      lucide-react:
+        specifier: ^1.61.0
+        version: 1.61.0(@types/react@19.3.0)(react@19.3.1)
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -483,6 +489,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@keyline-icons/react@2.1.0':
+    resolution: {integrity: sha512-R1ULG/tCzt/KCEijqTMvIBNWRQnzIWuFrpfS9WNVTCdUtYEwl7XmQwQAZ7K20VSJR+AScpPtPLGsbCUPP1eByQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: '>=18'
 
   '@modelcontextprotocol/sdk@1.32.1':
     resolution: {integrity: sha512-2DdE+SJDtzLEEWzY1ZjY7Q+VcPhcV1KisD3zI4u0XZyktsjHum1mwbMI+JaulUBi2OZk+KJAi2uPXzxichPkdw==}
@@ -2760,6 +2772,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
+
+  '@keyline-icons/react@2.1.0(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
 
   '@modelcontextprotocol/sdk@1.32.1(zod@4.6.7)':
     dependencies:

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
+    "@keyline-icons/react": "^2.1.0",
     "@studio-blocks/blocks-ui": "workspace:*",
     "@thesvg/react": "^3.4.1",
     "class-variance-authority": "^0.7.1",

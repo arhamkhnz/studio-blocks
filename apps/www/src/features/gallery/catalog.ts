@@ -11,6 +11,7 @@ import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
 import { List01 as Block9 } from "@/registry/blocks/lists/list-01/list-01";
 import { Chart03 as Block10 } from "@/registry/blocks/charts/chart-03/chart-03";
+import { Sidebar01 as Block11 } from "@/registry/blocks/navigation/sidebar-01/sidebar-01";
 
 export const blocks = [
   {
@@ -21,6 +22,7 @@ export const blocks = [
     component: Block0,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "kpi-02",
@@ -30,6 +32,7 @@ export const blocks = [
     component: Block1,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "kpi-03",
@@ -39,6 +42,7 @@ export const blocks = [
     component: Block2,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "chart-01",
@@ -48,6 +52,7 @@ export const blocks = [
     component: Block3,
     colSpan: 2,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "kpi-04",
@@ -57,6 +62,7 @@ export const blocks = [
     component: Block4,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "kpi-05",
@@ -66,6 +72,7 @@ export const blocks = [
     component: Block5,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "chart-02",
@@ -75,6 +82,7 @@ export const blocks = [
     component: Block6,
     colSpan: 2,
     rowSpan: 2,
+    iframe: false,
   },
   {
     id: "kpi-06",
@@ -84,6 +92,7 @@ export const blocks = [
     component: Block7,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "kpi-07",
@@ -93,6 +102,7 @@ export const blocks = [
     component: Block8,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
   },
   {
     id: "list-01",
@@ -103,6 +113,7 @@ export const blocks = [
     component: Block9,
     colSpan: 2,
     rowSpan: 2,
+    iframe: false,
   },
   {
     id: "chart-03",
@@ -112,5 +123,17 @@ export const blocks = [
     component: Block10,
     colSpan: 1,
     rowSpan: 2,
+    iframe: false,
+  },
+  {
+    id: "sidebar-01",
+    title: "Workspace Sidebar",
+    description:
+      "A compact workspace sidebar with grouped navigation, active links, Keyline icons, and organization settings.",
+    category: "navigation",
+    component: Block11,
+    colSpan: 1,
+    rowSpan: 3,
+    iframe: true,
   },
 ] satisfies GalleryBlock[];
