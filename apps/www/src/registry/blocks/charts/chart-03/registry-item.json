@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-03",
+  "type": "registry:block",
+  "title": "API Availability",
+  "description": "An API availability card with daily uptime history, service status, and selectable incident details.",
+  "categories": ["charts"],
+  "dependencies": ["cn"],
+  "registryDependencies": ["card"],
+  "files": [{ "path": "chart-03.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 100,
+    "component": "Chart03",
+    "preview": { "colSpan": 1, "rowSpan": 1, "maxWidth": 384 }
+  }
+}
