@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-04",
+  "type": "registry:block",
+  "title": "Resource Usage",
+  "description": "A resource usage card with semicircular capacity gauges for CPU, memory, and storage.",
+  "categories": ["charts"],
+  "dependencies": ["cn", "recharts@^3.8.0"],
+  "registryDependencies": ["card", "chart", "toggle-group"],
+  "files": [{ "path": "chart-04.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 140,
+    "component": "Chart04",
+    "preview": { "colSpan": 2, "rowSpan": 2 }
+  }
+}

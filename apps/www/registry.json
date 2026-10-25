@@ -192,29 +192,6 @@
       }
     },
     {
-      "name": "kpi-07",
-      "type": "registry:block",
-      "title": "Monthly Proposal Goal",
-      "description": "A goal progress KPI card with green segments and a configurable target.",
-      "categories": ["kpi"],
-      "dependencies": ["cn"],
-      "registryDependencies": ["card"],
-      "files": [
-        {
-          "path": "src/registry/blocks/kpi/kpi-07/kpi-07.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "meta": {
-        "order": 90,
-        "component": "Kpi07",
-        "preview": {
-          "colSpan": 1,
-          "rowSpan": 1
-        }
-      }
-    },
-    {
       "name": "list-01",
       "type": "registry:block",
       "title": "Upcoming Renewals",
@@ -281,6 +258,52 @@
           "colSpan": 1,
           "rowSpan": 3,
           "iframe": true
+        }
+      }
+    },
+    {
+      "name": "chart-04",
+      "type": "registry:block",
+      "title": "Resource Usage",
+      "description": "A resource usage card with semicircular capacity gauges for CPU, memory, and storage.",
+      "categories": ["charts"],
+      "dependencies": ["cn", "recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart", "toggle-group"],
+      "files": [
+        {
+          "path": "src/registry/blocks/charts/chart-04/chart-04.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "order": 140,
+        "component": "Chart04",
+        "preview": {
+          "colSpan": 2,
+          "rowSpan": 2
+        }
+      }
+    },
+    {
+      "name": "kpi-07",
+      "type": "registry:block",
+      "title": "Monthly Proposal Goal",
+      "description": "A goal progress KPI card with green segments and a configurable target.",
+      "categories": ["kpi"],
+      "dependencies": ["cn"],
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi/kpi-07/kpi-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "order": 150,
+        "component": "Kpi07",
+        "preview": {
+          "colSpan": 1,
+          "rowSpan": 1
         }
       }
     }

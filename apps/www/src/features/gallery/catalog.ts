@@ -12,6 +12,7 @@ import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
 import { List01 as Block9 } from "@/registry/blocks/lists/list-01/list-01";
 import { Chart03 as Block10 } from "@/registry/blocks/charts/chart-03/chart-03";
 import { Sidebar01 as Block11 } from "@/registry/blocks/navigation/sidebar-01/sidebar-01";
+import { Chart04 as Block12 } from "@/registry/blocks/charts/chart-04/chart-04";
 
 export const blocks = [
   {
@@ -95,16 +96,6 @@ export const blocks = [
     iframe: false,
   },
   {
-    id: "kpi-07",
-    title: "Monthly Proposal Goal",
-    description: "A goal progress KPI card with green segments and a configurable target.",
-    category: "kpi",
-    component: Block8,
-    colSpan: 1,
-    rowSpan: 1,
-    iframe: false,
-  },
-  {
     id: "list-01",
     title: "Upcoming Renewals",
     description:
@@ -135,5 +126,25 @@ export const blocks = [
     colSpan: 1,
     rowSpan: 3,
     iframe: true,
+  },
+  {
+    id: "chart-04",
+    title: "Resource Usage",
+    description: "A resource usage card with semicircular capacity gauges for CPU, memory, and storage.",
+    category: "charts",
+    component: Block12,
+    colSpan: 2,
+    rowSpan: 2,
+    iframe: false,
+  },
+  {
+    id: "kpi-07",
+    title: "Monthly Proposal Goal",
+    description: "A goal progress KPI card with green segments and a configurable target.",
+    category: "kpi",
+    component: Block8,
+    colSpan: 1,
+    rowSpan: 1,
+    iframe: false,
   },
 ] satisfies GalleryBlock[];
