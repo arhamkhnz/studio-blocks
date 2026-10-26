@@ -10,7 +10,7 @@
   "files": [{ "path": "sidebar-01.tsx", "type": "registry:component" }],
   "meta": {
     "order": 130,
-    "component": "Sidebar01",
+    "component": "AppSidebar",
     "preview": { "colSpan": 1, "rowSpan": 3, "iframe": true }
   }
 }

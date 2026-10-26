@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ComponentProps, type ComponentType, type MouseEvent } from "react";
+import type { ComponentProps, ComponentType, MouseEvent } from "react";
 import {
   ActivityIcon,
   BanknoteIcon,
@@ -26,7 +26,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarProvider,
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
@@ -74,6 +73,8 @@ export type AppSidebarProps = ComponentProps<typeof Sidebar> & {
   onNavigate?: (href: string) => void;
 };
 
+// Wrap <AppSidebar /> and {children} with <SidebarProvider> in your app layout
+// to share collapse state and mobile toggling.
 export function AppSidebar({ activePath = "/dashboard", onNavigate, className, ...props }: AppSidebarProps) {
   const { setOpenMobile } = useSidebar();
 
@@ -150,18 +151,5 @@ export function AppSidebar({ activePath = "/dashboard", onNavigate, className, .
         <SidebarMenu className="gap-px">{footerItems.map(renderItem)}</SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  );
-}
-
-// Standalone preview example. In your app's layout, wrap <AppSidebar /> and
-// {children} with <SidebarProvider> to share collapse state and mobile toggling.
-export function Sidebar01() {
-  const [activePath, setActivePath] = useState("/dashboard");
-
-  return (
-    <SidebarProvider className="relative mx-auto h-180 min-h-0 w-fit max-w-full overflow-hidden rounded-xl border contain-[layout_paint]">
-      <AppSidebar activePath={activePath} onNavigate={setActivePath} />
-      <SidebarTrigger className="m-2 md:hidden" />
-    </SidebarProvider>
   );
 }

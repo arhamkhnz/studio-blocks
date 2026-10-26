@@ -11,7 +11,6 @@
   "meta": {
     "order": 160,
     "component": "Chart05",
-    "usage": "<Chart05 data={[{ time: \"09:00\", requests: 1200 }, { time: \"09:15\", requests: 1800 }]} previousTotal={2800} periodLabel=\"30m\" />",
-    "preview": { "colSpan": 1, "rowSpan": 1, "component": "Chart05Demo" }
+    "preview": { "colSpan": 1, "rowSpan": 1 }
   }
 }

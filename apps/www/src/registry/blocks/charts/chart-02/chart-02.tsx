@@ -18,22 +18,12 @@ import "./flags.css";
 export type VisitorActivity = { minute: number; visitors: number };
 export type VisitorCountry = { code: string; name: string; visitors: number };
 export type Chart02Props = ComponentProps<typeof Card> & {
-  activity?: VisitorActivity[];
-  countries?: VisitorCountry[];
+  activity: VisitorActivity[];
+  countries: VisitorCountry[];
   visitorsPerMinute?: number;
   isLive?: boolean;
   action?: ReactNode;
 };
-
-const defaultActivity = [
-  0, 6, 12, 20, 12, 0, 6, 6, 0, 4, 0, 20, 15, 4, 6, 0, 4, 12, 20, 0, 4, 20, 12, 0, 6, 6, 0, 20, 0, 4,
-].map((visitors, index) => ({ minute: index + 1, visitors }));
-const defaultCountries: VisitorCountry[] = [
-  { code: "US", name: "United States", visitors: 14 },
-  { code: "GB", name: "United Kingdom", visitors: 4 },
-  { code: "CA", name: "Canada", visitors: 3 },
-  { code: "IN", name: "India", visitors: 3 },
-];
 
 const chartConfig = {
   visitors: { color: "var(--color-blue-500)", label: "Visitors" },
@@ -75,14 +65,7 @@ function VisitorBar({ height, payload, width, x, y }: BarShapeProps) {
   );
 }
 
-export function Chart02({
-  activity = defaultActivity,
-  countries = defaultCountries,
-  visitorsPerMinute,
-  isLive = true,
-  action,
-  ...props
-}: Chart02Props) {
+export function Chart02({ activity, countries, visitorsPerMinute, isLive = true, action, ...props }: Chart02Props) {
   const data = activity.filter((item) => Number.isFinite(item.visitors) && item.visitors >= 0);
   const countryData = countries.filter((item) => Number.isFinite(item.visitors) && item.visitors >= 0);
   const total = visitorsPerMinute ?? countryData.reduce((sum, item) => sum + item.visitors, 0);

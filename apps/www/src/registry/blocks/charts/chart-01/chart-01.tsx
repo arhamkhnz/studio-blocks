@@ -18,18 +18,12 @@ export type IncomeItem = {
 };
 
 export type Chart01Props = ComponentProps<typeof Card> & {
-  items?: IncomeItem[];
+  items: IncomeItem[];
   currency?: string;
   locale?: string;
 };
 
-const defaultItems: IncomeItem[] = [
-  { label: "Primary salary", amount: 4560, color: "violet" },
-  { label: "Freelance projects", amount: 1412, color: "blue" },
-  { label: "Dividends and interest", amount: 765, color: "emerald" },
-];
-
-export function Chart01({ items = defaultItems, currency = "USD", locale = "en-US", ...props }: Chart01Props) {
+export function Chart01({ items, currency = "USD", locale = "en-US", ...props }: Chart01Props) {
   const sources = items.filter((item) => Number.isFinite(item.amount) && item.amount >= 0);
   const total = sources.reduce((sum, item) => sum + item.amount, 0);
   const formatter = new Intl.NumberFormat(locale, { style: "currency", currency });

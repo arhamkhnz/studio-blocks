@@ -9,14 +9,12 @@ export type AvailabilityStatus = "operational" | "degraded" | "outage" | "mainte
 
 export type Chart03Props = ComponentProps<typeof Card> & {
   /** Daily uptime percentages, oldest first. Use null for a day without measurements. */
-  days?: readonly (number | null)[];
+  days: readonly (number | null)[];
   /** Current service status, independent of historical incidents. */
   status?: AvailabilityStatus;
   periodLabel?: string;
   onDaySelect?: (uptime: number | null, index: number) => void;
 };
-
-const exampleDays = Array.from({ length: 30 }, (_, index) => (index === 10 ? 99.375 : 100));
 
 const statuses = {
   operational: { label: "Operational", color: "bg-green-500" },
@@ -36,7 +34,7 @@ function daySummary(uptime: number | null) {
 }
 
 export function Chart03({
-  days = exampleDays,
+  days,
   status = "operational",
   periodLabel = `over the last ${days.length} ${days.length === 1 ? "day" : "days"}`,
   onDaySelect,

@@ -94,16 +94,21 @@ for (const directory of directories) {
   }
 
   const entryFile = files.find((file) => file.path.endsWith(".tsx"));
-  if (!entryFile) throw new Error(`${item.name}: list the preview component first in files.`);
+  if (!entryFile) throw new Error(`${item.name}: list the component entry first in files.`);
 
   const preview = getPreview(item);
-  const previewComponent = preview.component ?? component;
-  if (typeof previewComponent !== "string" || !/^[A-Z][\w$]*$/.test(previewComponent)) {
-    throw new Error(`${item.name}: meta.preview.component must name a React export.`);
+  const examplePath = posix.join(directory.path, "example.tsx");
+  let hasExample = false;
+  try {
+    await access(join(appDirectory, examplePath));
+    hasExample = true;
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
   }
   const index = items.length;
-  const importPath = entryFile.path.replace(/^src\//, "@/").replace(/\.tsx$/, "");
-  imports.push(`import { ${previewComponent} as Block${index} } from ${JSON.stringify(importPath)};`);
+  const importPath = (hasExample ? examplePath : entryFile.path).replace(/^src\//, "@/").replace(/\.tsx$/, "");
+  const binding = hasExample ? `Block${index}` : `{ ${component} as Block${index} }`;
+  imports.push(`import ${binding} from ${JSON.stringify(importPath)};`);
   gallery.push(`  {
     id: ${JSON.stringify(item.name)},
     title: ${JSON.stringify(item.title ?? item.name)},

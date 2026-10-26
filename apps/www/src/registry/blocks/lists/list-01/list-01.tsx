@@ -1,18 +1,6 @@
 "use client";
 
 import { useId, useState, type ComponentProps, type ComponentType, type SVGProps } from "react";
-import Adobe from "@thesvg/react/adobe";
-import Canva from "@thesvg/react/canva";
-import Dropbox from "@thesvg/react/dropbox";
-import Figma from "@thesvg/react/figma";
-import Github from "@thesvg/react/github";
-import GoogleDrive from "@thesvg/react/google-drive";
-import Linear from "@thesvg/react/linear";
-import Notion from "@thesvg/react/notion";
-import Slack from "@thesvg/react/slack";
-import Spotify from "@thesvg/react/spotify";
-import Vercel from "@thesvg/react/vercel";
-import Zoom from "@thesvg/react/zoom";
 import { cn } from "cn";
 import { format, parseISO } from "date-fns";
 import { CalendarDays } from "lucide-react";
@@ -46,65 +34,15 @@ export type RenewalWeek = {
 
 export type List01Props = ComponentProps<typeof Card> & {
   /** Totals are supplied by the caller. */
-  data?: RenewalWeek;
+  data: RenewalWeek;
   currency?: string;
-};
-
-const exampleWeek: RenewalWeek = {
-  rangeLabel: "Oct 25 - 31",
-  total: 2209,
-  count: 12,
-  days: [
-    {
-      date: "2026-10-25",
-      total: 240,
-      items: [
-        { name: "Figma", icon: Figma, plan: "Professional monthly", amount: 120 },
-        { name: "Notion", icon: Notion, plan: "Business monthly", amount: 120 },
-      ],
-    },
-    {
-      date: "2026-10-26",
-      total: 590,
-      items: [
-        { name: "Slack", icon: Slack, plan: "Team monthly", amount: 240 },
-        { name: "Linear", icon: Linear, plan: "Business monthly", amount: 200 },
-        { name: "Vercel", icon: (props) => <Vercel variant="mono" {...props} />, plan: "Pro monthly", amount: 150 },
-      ],
-    },
-    { date: "2026-10-27", total: 0, items: [] },
-    {
-      date: "2026-10-28",
-      total: 129,
-      items: [{ name: "GitHub", icon: Github, plan: "Team monthly", amount: 129 }],
-    },
-    {
-      date: "2026-10-29",
-      total: 890,
-      items: [
-        { name: "Dropbox", icon: Dropbox, plan: "Business monthly", amount: 320 },
-        { name: "Zoom", icon: Zoom, plan: "Business monthly", amount: 240 },
-        { name: "Google Drive", icon: GoogleDrive, plan: "Business monthly", amount: 200 },
-        { name: "Adobe", icon: Adobe, plan: "Creative Cloud monthly", amount: 130 },
-      ],
-    },
-    {
-      date: "2026-10-30",
-      total: 360,
-      items: [
-        { name: "Canva", icon: Canva, plan: "Business monthly", amount: 180 },
-        { name: "Spotify", icon: Spotify, plan: "Annual subscription", amount: 180 },
-      ],
-    },
-    { date: "2026-10-31", total: 0, items: [] },
-  ],
 };
 
 function formatDate(date: string, pattern: string) {
   return format(parseISO(date), pattern);
 }
 
-export function List01({ data = exampleWeek, currency = "USD", className, ...props }: List01Props) {
+export function List01({ data, currency = "USD", className, ...props }: List01Props) {
   const detailsId = useId();
   const [selectedDay, setSelectedDay] = useState(0);
   const activeDay = data.days[selectedDay] ?? data.days[0];

@@ -21,18 +21,12 @@ export type ResourceUsage = {
 };
 
 export type Chart04Props = ComponentProps<typeof Card> & {
-  items?: ResourceUsage[];
+  items: ResourceUsage[];
 };
-
-const defaultItems: ResourceUsage[] = [
-  { label: "CPU", used: 3.36, capacity: 8, unit: "vCPU" },
-  { label: "Memory", used: 10.9, capacity: 16, unit: "GB" },
-  { label: "Storage", used: 405, capacity: 500, unit: "GB" },
-];
 
 const colors = ["var(--color-violet-700)", "var(--color-sky-500)", "var(--color-teal-700)"];
 
-export function Chart04({ items = defaultItems, className, ...props }: Chart04Props) {
+export function Chart04({ items, className, ...props }: Chart04Props) {
   const [selected, setSelected] = useState("resource-0");
   const resources = items
     .filter(

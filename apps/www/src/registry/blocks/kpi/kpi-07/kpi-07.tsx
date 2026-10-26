@@ -4,21 +4,14 @@ import { cn } from "cn";
 import { Card, CardContent, CardHeader, CardTitle } from "@studio-blocks/blocks-ui/components/card";
 
 export type Kpi07Props = ComponentProps<typeof Card> & {
-  title?: string;
-  value?: number;
-  target?: number;
-  unit?: string;
+  title: string;
+  value: number;
+  target: number;
+  unit: string;
   period?: string;
 };
 
-export function Kpi07({
-  title = "Monthly Proposal Goal",
-  value = 12,
-  target = 18,
-  unit = "sent",
-  period = "this month's",
-  ...props
-}: Kpi07Props) {
+export function Kpi07({ title, value, target, unit, period = "this month's", ...props }: Kpi07Props) {
   const current = Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
   const goal = Number.isFinite(target) ? Math.max(0, Math.floor(target)) : 0;
   const progress = goal > 0 ? Math.min(1, current / goal) : 0;

@@ -28,10 +28,11 @@ apps/www/
   src/features/                  Gallery, filters, and installation panels
   src/registry/blocks/
     kpi/kpi-01/
-      kpi-01.tsx                 Installable component and default preview
+      kpi-01.tsx                 Static installable component
       registry-item.json         Block metadata and file list
     charts/chart-02/
       chart-02.tsx
+      example.tsx                Website preview, sample data, and usage source
       flags.css                  Supporting file shipped with this block
       registry-item.json
   registry.json                  Generated source registry
@@ -48,13 +49,15 @@ The website uses the Base UI Nova preset. Both workspace `components.json` files
 
 Create a folder under `apps/www/src/registry/blocks/<category>/<block-id>/`. Use an unused sequential ID such as `kpi-08` or `chart-03`; keep IDs unique across categories.
 
-Export a named React component, for example `Kpi08`. It must render with no required props because the gallery and detail page render its default preview.
+Export a named React component, for example `Kpi08`. Data-driven blocks should accept their data through typed props. Put sample data and demo composition in a colocated `example.tsx` with a default `Example` export. Static blocks that render without props do not need an example file.
+
+The gallery, detail page, and iframe preview use `example.tsx` when present. The Usage tab reads the same file and rewrites its component import to the installed path. Keep the example self-contained, with sample data in that file. Do not list it in the manifest's `files`: only the reusable component and its required supporting files are installed.
 
 - Compose existing shadcn primitives and import them directly from `@studio-blocks/blocks-ui/components/...`.
 - Import `cn` from the `cn` package when needed.
 - Use Lucide for icons and Tailwind CSS v4 for styling.
 - Use theme tokens for surfaces, text, and borders. Keep data accents scoped to the block.
-- Keep sample data small and clearly separate from application integrations.
+- Keep sample data in `example.tsx`, separate from the installable component and application integrations.
 - Expose useful data and behavior through typed props. Do not imply that static sample data is connected to a live service.
 - Add `"use client"` only when the component needs client features.
 - Keep website routing, gallery wrappers, and installation UI out of the block's source.
@@ -106,8 +109,8 @@ Replace the example's dependencies with the ones the block actually imports.
 | `categories`           | Use the gallery category ID as the first entry. Available IDs are `kpi`, `charts`, `forms`, `tables`, `lists`, and `navigation`.                    |
 | `dependencies`         | npm packages imported by the installed source, such as `cn`, `lucide-react`, or `recharts`.                                                         |
 | `registryDependencies` | Standard shadcn primitives the block needs, such as `card`, `badge`, or `progress`.                                                                 |
-| `files`                | Paths relative to this manifest. List the preview component's `.tsx` file first. Include every supporting file required after installation.         |
-| `meta.component`       | The named React export used for the preview and generated usage example.                                                                            |
+| `files`                | Paths relative to this manifest. List the installable component's `.tsx` file first. Include every supporting file required after installation.     |
+| `meta.component`       | The installable named React export. Used for previews and usage when there is no `example.tsx`.                                                     |
 | `meta.order`           | Optional non-negative integer. Lower values appear first; ties sort by block ID. Missing values go last. Existing values leave gaps for insertions. |
 | `meta.preview.colSpan` | Width of 1, 2, or 3 gallery columns. Defaults to 1.                                                                                                 |
 | `meta.preview.rowSpan` | Positive integer controlling gallery height. Defaults to 1.                                                                                         |

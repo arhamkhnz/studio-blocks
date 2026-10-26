@@ -3,18 +3,17 @@ import type { GalleryBlock } from "@/features/gallery/types";
 import { Kpi01 as Block0 } from "@/registry/blocks/kpi/kpi-01/kpi-01";
 import { Kpi02 as Block1 } from "@/registry/blocks/kpi/kpi-02/kpi-02";
 import { Kpi03 as Block2 } from "@/registry/blocks/kpi/kpi-03/kpi-03";
-import { Chart01 as Block3 } from "@/registry/blocks/charts/chart-01/chart-01";
+import Block3 from "@/registry/blocks/charts/chart-01/example";
 import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
-import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
+import Block6 from "@/registry/blocks/charts/chart-02/example";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
-import { List01 as Block8 } from "@/registry/blocks/lists/list-01/list-01";
-import { Chart03 as Block9 } from "@/registry/blocks/charts/chart-03/chart-03";
-import { Sidebar01 as Block10 } from "@/registry/blocks/navigation/sidebar-01/sidebar-01";
-import { Chart04 as Block11 } from "@/registry/blocks/charts/chart-04/chart-04";
-import { Kpi07 as Block12 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
-
-import { Chart05Demo as AssetRequestsBlock } from "@/registry/blocks/charts/chart-05/chart-05";
+import Block8 from "@/registry/blocks/lists/list-01/example";
+import Block9 from "@/registry/blocks/charts/chart-03/example";
+import Block10 from "@/registry/blocks/navigation/sidebar-01/example";
+import Block11 from "@/registry/blocks/charts/chart-04/example";
+import Block12 from "@/registry/blocks/kpi/kpi-07/example";
+import Block13 from "@/registry/blocks/charts/chart-05/example";
 
 export const blocks = [
   {
@@ -155,7 +154,7 @@ export const blocks = [
     description:
       "A compact edge request card with 24-hour traffic, a period comparison, and an edge-to-edge area sparkline.",
     category: "charts",
-    component: AssetRequestsBlock,
+    component: Block13,
     colSpan: 1,
     rowSpan: 1,
     iframe: false,
