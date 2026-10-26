@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-05",
+  "type": "registry:block",
+  "title": "Edge Requests",
+  "description": "A compact edge request card with 24-hour traffic, a period comparison, and an edge-to-edge area sparkline.",
+  "categories": ["charts"],
+  "dependencies": ["cn", "lucide-react", "recharts@^3.8.0"],
+  "registryDependencies": ["card", "chart"],
+  "files": [{ "path": "chart-05.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 160,
+    "component": "Chart05",
+    "usage": "<Chart05 data={[{ time: \"09:00\", requests: 1200 }, { time: \"09:15\", requests: 1800 }]} previousTotal={2800} periodLabel=\"30m\" />",
+    "preview": { "colSpan": 1, "rowSpan": 1, "component": "Chart05Demo" }
+  }
+}

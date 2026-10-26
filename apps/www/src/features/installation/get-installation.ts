@@ -5,7 +5,7 @@ type RegistryItem = {
   dependencies?: string[];
   registryDependencies?: string[];
   files: { target: string; content: string }[];
-  meta: { component: string };
+  meta: { component: string; usage?: string };
 };
 
 export async function getInstallation(id: string) {
@@ -22,6 +22,6 @@ export async function getInstallation(id: string) {
       path: file.target.replace(/^@components\//, "components/"),
       content: file.content,
     })),
-    usage: `import { ${item.meta.component} } from "${importPath}";\n\nexport default function Example() {\n  return <${item.meta.component} />;\n}`,
+    usage: `import { ${item.meta.component} } from "${importPath}";\n\nexport default function Example() {\n  return ${item.meta.usage ?? `<${item.meta.component} />`};\n}`,
   };
 }

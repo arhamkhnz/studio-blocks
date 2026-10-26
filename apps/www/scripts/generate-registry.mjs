@@ -97,9 +97,13 @@ for (const directory of directories) {
   if (!entryFile) throw new Error(`${item.name}: list the preview component first in files.`);
 
   const preview = getPreview(item);
+  const previewComponent = preview.component ?? component;
+  if (typeof previewComponent !== "string" || !/^[A-Z][\w$]*$/.test(previewComponent)) {
+    throw new Error(`${item.name}: meta.preview.component must name a React export.`);
+  }
   const index = items.length;
   const importPath = entryFile.path.replace(/^src\//, "@/").replace(/\.tsx$/, "");
-  imports.push(`import { ${component} as Block${index} } from ${JSON.stringify(importPath)};`);
+  imports.push(`import { ${previewComponent} as Block${index} } from ${JSON.stringify(importPath)};`);
   gallery.push(`  {
     id: ${JSON.stringify(item.name)},
     title: ${JSON.stringify(item.title ?? item.name)},

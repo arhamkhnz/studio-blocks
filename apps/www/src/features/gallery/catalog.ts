@@ -8,11 +8,13 @@ import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 import { Chart02 as Block6 } from "@/registry/blocks/charts/chart-02/chart-02";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
-import { Kpi07 as Block8 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
-import { List01 as Block9 } from "@/registry/blocks/lists/list-01/list-01";
-import { Chart03 as Block10 } from "@/registry/blocks/charts/chart-03/chart-03";
-import { Sidebar01 as Block11 } from "@/registry/blocks/navigation/sidebar-01/sidebar-01";
-import { Chart04 as Block12 } from "@/registry/blocks/charts/chart-04/chart-04";
+import { List01 as Block8 } from "@/registry/blocks/lists/list-01/list-01";
+import { Chart03 as Block9 } from "@/registry/blocks/charts/chart-03/chart-03";
+import { Sidebar01 as Block10 } from "@/registry/blocks/navigation/sidebar-01/sidebar-01";
+import { Chart04 as Block11 } from "@/registry/blocks/charts/chart-04/chart-04";
+import { Kpi07 as Block12 } from "@/registry/blocks/kpi/kpi-07/kpi-07";
+
+import { Chart05Demo as AssetRequestsBlock } from "@/registry/blocks/charts/chart-05/chart-05";
 
 export const blocks = [
   {
@@ -101,7 +103,7 @@ export const blocks = [
     description:
       "A subscription renewal card with a seven-day selector, weekly totals, and service logos for each renewal.",
     category: "lists",
-    component: Block9,
+    component: Block8,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
@@ -111,7 +113,7 @@ export const blocks = [
     title: "API Availability",
     description: "An API availability card with daily uptime history, service status, and selectable daily details.",
     category: "charts",
-    component: Block10,
+    component: Block9,
     colSpan: 1,
     rowSpan: 2,
     iframe: false,
@@ -122,7 +124,7 @@ export const blocks = [
     description:
       "A compact workspace sidebar with grouped navigation, active links, Keyline icons, and organization settings.",
     category: "navigation",
-    component: Block11,
+    component: Block10,
     colSpan: 1,
     rowSpan: 3,
     iframe: true,
@@ -132,7 +134,7 @@ export const blocks = [
     title: "Resource Usage",
     description: "A resource usage card with semicircular capacity gauges for CPU, memory, and storage.",
     category: "charts",
-    component: Block12,
+    component: Block11,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
@@ -142,7 +144,18 @@ export const blocks = [
     title: "Monthly Proposal Goal",
     description: "A goal progress KPI card with green segments and a configurable target.",
     category: "kpi",
-    component: Block8,
+    component: Block12,
+    colSpan: 1,
+    rowSpan: 1,
+    iframe: false,
+  },
+  {
+    id: "chart-05",
+    title: "Edge Requests",
+    description:
+      "A compact edge request card with 24-hour traffic, a period comparison, and an edge-to-edge area sparkline.",
+    category: "charts",
+    component: AssetRequestsBlock,
     colSpan: 1,
     rowSpan: 1,
     iframe: false,
