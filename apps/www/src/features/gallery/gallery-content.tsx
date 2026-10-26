@@ -28,8 +28,15 @@ type GalleryContentProps = {
 export function GalleryContent({ blocks }: GalleryContentProps) {
   return (
     <div className="@container/gallery flex min-w-0 flex-1 flex-col gap-6">
-      <div className="sticky top-8 z-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 bg-background before:absolute before:inset-x-0 before:-top-8 before:h-8 before:bg-background after:absolute after:inset-x-0 after:top-full after:h-6 after:bg-background">
-        <Suspense fallback={<BlockFilters onCategoryChange={updateCategory} />}>
+      <div className="sticky top-0 z-10 -mx-6 flex items-center justify-between gap-4 bg-background px-6 py-3 after:absolute after:inset-x-0 after:top-full after:h-6 after:bg-background sm:-mx-8 sm:px-8 lg:top-8 lg:mx-0 lg:gap-6 lg:px-0 lg:py-0 lg:before:absolute lg:before:inset-x-0 lg:before:-top-8 lg:before:h-8 lg:before:bg-background">
+        <Suspense
+          fallback={
+            <>
+              <BlockFilters onCategoryChange={updateCategory} />
+              <span aria-hidden="true" className="w-16 shrink-0" />
+            </>
+          }
+        >
           <GalleryFilters blocks={blocks} />
         </Suspense>
       </div>
