@@ -28,13 +28,12 @@ type GalleryContentProps = {
 export function GalleryContent({ blocks }: GalleryContentProps) {
   return (
     <div className="@container/gallery flex min-w-0 flex-1 flex-col gap-6">
-      <div className="sticky top-0 z-10 -mx-6 flex items-center justify-between gap-4 bg-background px-6 py-3 after:absolute after:inset-x-0 after:top-full after:h-6 after:bg-background sm:-mx-8 sm:px-8 lg:top-8 lg:mx-0 lg:gap-6 lg:px-0 lg:py-0 lg:before:absolute lg:before:inset-x-0 lg:before:-top-8 lg:before:h-8 lg:before:bg-background">
+      <div className="sticky top-0 z-10 -mx-6 flex items-center bg-background px-6 py-3 sm:-mx-8 sm:px-8 lg:top-8 lg:mx-0 lg:px-0 lg:py-0 lg:before:absolute lg:before:inset-x-0 lg:before:-top-8 lg:before:h-8 lg:before:bg-background lg:after:absolute lg:after:inset-x-0 lg:after:top-full lg:after:h-6 lg:after:bg-background">
         <Suspense
           fallback={
-            <>
-              <BlockFilters onCategoryChange={updateCategory} />
-              <span aria-hidden="true" className="w-16 shrink-0" />
-            </>
+            <BlockFilters onCategoryChange={updateCategory}>
+              <span aria-hidden="true" className="ml-auto w-16 shrink-0" />
+            </BlockFilters>
           }
         >
           <GalleryFilters blocks={blocks} />
@@ -71,12 +70,11 @@ function GalleryFilters({ blocks }: GalleryContentProps) {
   const [category, setCategory] = useCategoryFilter();
   const count = category === "all" ? blocks.length : blocks.filter((block) => block.category === category).length;
   return (
-    <>
-      <BlockFilters category={category} onCategoryChange={setCategory} />
-      <p className="ml-auto shrink-0 text-[15px] font-[450] text-muted-foreground tabular-nums">
+    <BlockFilters category={category} onCategoryChange={setCategory}>
+      <p className="ml-auto shrink-0 text-[15px] font-[450] whitespace-nowrap text-muted-foreground tabular-nums">
         {count} {count === 1 ? "block" : "blocks"}
       </p>
-    </>
+    </BlockFilters>
   );
 }
 
