@@ -14,6 +14,7 @@ import Block10 from "@/registry/blocks/navigation/sidebar-01/example";
 import Block11 from "@/registry/blocks/charts/chart-04/example";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import Block13 from "@/registry/blocks/charts/chart-05/example";
+import { Form01 as Block14 } from "@/registry/blocks/forms/form-01/form-01";
 
 export const blocks = [
   {
@@ -157,6 +158,16 @@ export const blocks = [
     component: Block13,
     colSpan: 1,
     rowSpan: 1,
+    iframe: false,
+  },
+  {
+    id: "form-01",
+    title: "Create Project",
+    description: "A compact project form with optional details and workspace visibility controls.",
+    category: "forms",
+    component: Block14,
+    colSpan: 2,
+    rowSpan: 2,
     iframe: false,
   },
 ] satisfies GalleryBlock[];

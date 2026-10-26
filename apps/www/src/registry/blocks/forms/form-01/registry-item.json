@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form-01",
+  "type": "registry:block",
+  "title": "Create Project",
+  "description": "A compact project form with optional details and workspace visibility controls.",
+  "categories": ["forms"],
+  "dependencies": ["lucide-react", "react-hook-form@^7.91.0", "@hookform/resolvers@^6.0.0", "zod@^4.6.7"],
+  "registryDependencies": ["button", "card", "field", "input", "textarea", "toggle-group", "alert"],
+  "files": [{ "path": "form-01.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 170,
+    "component": "Form01",
+    "preview": { "colSpan": 2, "rowSpan": 2 }
+  }
+}
