@@ -36,6 +36,12 @@ export function DeferredBlockPreview({ mobileHeight, rowSpan, ...block }: Deferr
       className="absolute inset-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
     >
       <Skeleton aria-hidden="true" className="size-full rounded-none bg-preview motion-reduce:animate-none" />
+      <span
+        role="status"
+        className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-muted-foreground"
+      >
+        Loading {block.title}…
+      </span>
     </Link>
   );
 

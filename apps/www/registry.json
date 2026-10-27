@@ -205,7 +205,7 @@
       "title": "Upcoming Renewals",
       "description": "A subscription renewal card with a seven-day selector, weekly totals, and service logos for each renewal.",
       "categories": ["lists"],
-      "dependencies": ["cn", "date-fns@^4.4.0", "@thesvg/react@^3.4.1", "lucide-react"],
+      "dependencies": ["cn", "date-fns@^4.4.0", "@thesvg/react@^4.0.0", "lucide-react"],
       "registryDependencies": ["card", "toggle-group", "separator", "empty"],
       "files": [
         {
@@ -253,7 +253,7 @@
       "title": "Workspace Sidebar",
       "description": "A compact workspace sidebar with grouped navigation, active links, Keyline icons, and organization settings.",
       "categories": ["navigation"],
-      "dependencies": ["cn", "@keyline-icons/react@^2.1.0"],
+      "dependencies": ["cn", "@keyline-icons/react@^2.2.0"],
       "registryDependencies": ["sidebar"],
       "files": [
         {

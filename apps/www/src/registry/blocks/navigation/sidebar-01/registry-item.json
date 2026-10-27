@@ -5,7 +5,7 @@
   "title": "Workspace Sidebar",
   "description": "A compact workspace sidebar with grouped navigation, active links, Keyline icons, and organization settings.",
   "categories": ["navigation"],
-  "dependencies": ["cn", "@keyline-icons/react@^2.1.0"],
+  "dependencies": ["cn", "@keyline-icons/react@^2.2.0"],
   "registryDependencies": ["sidebar"],
   "files": [{ "path": "sidebar-01.tsx", "type": "registry:component" }],
   "meta": {

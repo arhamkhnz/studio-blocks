@@ -5,7 +5,7 @@
   "title": "Upcoming Renewals",
   "description": "A subscription renewal card with a seven-day selector, weekly totals, and service logos for each renewal.",
   "categories": ["lists"],
-  "dependencies": ["cn", "date-fns@^4.4.0", "@thesvg/react@^3.4.1", "lucide-react"],
+  "dependencies": ["cn", "date-fns@^4.4.0", "@thesvg/react@^4.0.0", "lucide-react"],
   "registryDependencies": ["card", "toggle-group", "separator", "empty"],
   "files": [{ "path": "list-01.tsx", "type": "registry:component" }],
   "meta": {
