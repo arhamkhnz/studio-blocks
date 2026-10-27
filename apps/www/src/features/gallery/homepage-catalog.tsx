@@ -11,7 +11,6 @@ import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
-import Block14 from "@/registry/blocks/charts/chart-06/example";
 import { Kpi08 as Block17 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 
 export const homepageBlocks = [
@@ -124,9 +123,7 @@ export const homepageBlocks = [
     category: "charts",
     colSpan: 1,
     rowSpan: 2,
-    preview: (
-      <BlockPreview id={"chart-06"} title={"Performance Score"} colSpan={1} iframe={false} component={Block14} />
-    ),
+    preview: <DeferredBlockPreview id={"chart-06"} title={"Performance Score"} colSpan={1} iframe={false} rowSpan={2} />,
   },
   {
     id: "form-01",

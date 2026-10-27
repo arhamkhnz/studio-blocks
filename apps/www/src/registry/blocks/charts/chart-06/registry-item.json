@@ -17,7 +17,7 @@
     "preview": {
       "colSpan": 1,
       "rowSpan": 2,
-      "lazy": false
+      "lazy": true
     }
   },
   "registryDependencies": ["chart"],

@@ -9,6 +9,7 @@ export const previewComponents: Record<string, ComponentType> = {
   "chart-03": lazy(() => import("@/registry/blocks/charts/chart-03/example")),
   "chart-04": lazy(() => import("@/registry/blocks/charts/chart-04/example")),
   "chart-05": lazy(() => import("@/registry/blocks/charts/chart-05/example")),
+  "chart-06": lazy(() => import("@/registry/blocks/charts/chart-06/example")),
   "form-01": lazy(() =>
     import("@/registry/blocks/forms/form-01/form-01").then((module) => ({ default: module.Form01 })),
   ),
