@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "table-01",
+  "type": "registry:block",
+  "title": "Recent Invoices",
+  "description": "An invoice data table with status filtering, search, sorting, and pagination.",
+  "categories": ["tables"],
+  "dependencies": ["@tanstack/react-table@^9.3.1", "cn", "date-fns@^4.4.0", "lucide-react"],
+  "registryDependencies": ["badge", "button", "empty", "input", "pagination", "select", "table"],
+  "files": [
+    {
+      "path": "table-01.tsx",
+      "type": "registry:component",
+      "target": "@components/studio-blocks/table-01/table-01.tsx"
+    },
+    { "path": "columns.tsx", "type": "registry:component", "target": "@components/studio-blocks/table-01/columns.tsx" },
+    {
+      "path": "data-table-features.ts",
+      "type": "registry:component",
+      "target": "@components/studio-blocks/table-01/data-table-features.ts"
+    }
+  ],
+  "meta": {
+    "order": 180,
+    "component": "Table01",
+    "preview": { "colSpan": 2, "rowSpan": 2 }
+  }
+}

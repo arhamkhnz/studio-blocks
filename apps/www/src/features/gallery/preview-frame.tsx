@@ -14,7 +14,7 @@ type PreviewFrameProps = {
 export function PreviewFrame({ children, colSpan, interactive = false, iframeSrc, className }: PreviewFrameProps) {
   return (
     <div className={cn("grid min-w-0 place-items-center bg-preview p-6", !interactive && "overflow-hidden", className)}>
-      <div className={cn("w-full", previewWidths[colSpan])} inert={!interactive}>
+      <div className={cn("w-full min-w-0", previewWidths[colSpan])} inert={!interactive}>
         {iframeSrc ? (
           <div className={cn("relative h-180 overflow-hidden", interactive && "lg:max-h-[calc(100dvh-14rem)]")}>
             <iframe

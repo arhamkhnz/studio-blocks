@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^6.0.0",
     "@keyline-icons/react": "^2.1.0",
     "@studio-blocks/blocks-ui": "workspace:*",
+    "@tanstack/react-table": "^9.3.1",
     "@thesvg/react": "^3.4.1",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.0",

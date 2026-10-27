@@ -15,6 +15,7 @@ import Block11 from "@/registry/blocks/charts/chart-04/example";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import Block13 from "@/registry/blocks/charts/chart-05/example";
 import { Form01 as Block14 } from "@/registry/blocks/forms/form-01/form-01";
+import Block15 from "@/registry/blocks/tables/table-01/example";
 
 export const blocks = [
   {
@@ -166,6 +167,16 @@ export const blocks = [
     description: "A compact project form with optional details and workspace visibility controls.",
     category: "forms",
     component: Block14,
+    colSpan: 2,
+    rowSpan: 2,
+    iframe: false,
+  },
+  {
+    id: "table-01",
+    title: "Recent Invoices",
+    description: "An invoice data table with status filtering, search, sorting, and pagination.",
+    category: "tables",
+    component: Block15,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
