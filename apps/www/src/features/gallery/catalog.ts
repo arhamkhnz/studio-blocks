@@ -17,6 +17,8 @@ import Block13 from "@/registry/blocks/charts/chart-05/example";
 import { Form01 as Block14 } from "@/registry/blocks/forms/form-01/form-01";
 import Block15 from "@/registry/blocks/tables/table-01/example";
 
+import { Kpi08 as Block16 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+
 export const blocks = [
   {
     id: "kpi-01",
@@ -179,6 +181,16 @@ export const blocks = [
     component: Block15,
     colSpan: 2,
     rowSpan: 2,
+    iframe: false,
+  },
+  {
+    id: "kpi-08",
+    title: "API Cost",
+    description: "A compact API cost KPI with an orange bar sparkline and a daily cost comparison.",
+    category: "kpi",
+    component: Block16,
+    colSpan: 1,
+    rowSpan: 1,
     iframe: false,
   },
 ] satisfies GalleryBlock[];

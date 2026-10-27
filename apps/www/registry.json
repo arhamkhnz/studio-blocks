@@ -386,6 +386,29 @@
           "rowSpan": 2
         }
       }
+    },
+    {
+      "name": "kpi-08",
+      "type": "registry:block",
+      "title": "API Cost",
+      "description": "A compact API cost KPI with an orange bar sparkline and a daily cost comparison.",
+      "categories": ["kpi"],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "src/registry/blocks/kpi/kpi-08/kpi-08.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "order": 190,
+        "component": "Kpi08",
+        "preview": {
+          "colSpan": 1,
+          "rowSpan": 1
+        }
+      }
     }
   ]
 }
