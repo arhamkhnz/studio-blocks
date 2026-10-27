@@ -2,9 +2,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, join, posix } from "node:path";
 
 type RegistryItem = {
-  dependencies?: string[];
-  registryDependencies?: string[];
-  files: { path: string; target: string; content: string }[];
+  files: { path: string; target: string }[];
   meta: { component: string };
 };
 
@@ -29,12 +27,7 @@ export async function getInstallation(id: string) {
 
   return {
     registryItem: `@studio-blocks/${id}`,
-    dependencies: item.dependencies ?? [],
-    registryDependencies: item.registryDependencies ?? [],
-    files: item.files.map((file) => ({
-      path: file.target.replace(/^@components\//, "components/"),
-      content: file.content,
-    })),
+    registryUrl: `/r/${id}.json`,
     usage,
   };
 }

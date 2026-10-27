@@ -16,7 +16,6 @@ import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import Block13 from "@/registry/blocks/charts/chart-05/example";
 import { Form01 as Block14 } from "@/registry/blocks/forms/form-01/form-01";
 import Block15 from "@/registry/blocks/tables/table-01/example";
-
 import { Kpi08 as Block16 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 
 export const blocks = [

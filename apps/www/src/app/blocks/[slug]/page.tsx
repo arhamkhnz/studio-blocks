@@ -85,6 +85,7 @@ export default async function BlockPage({ params }: { params: Promise<{ slug: st
           </Link>
         </div>
         <BlockInstallation
+          key={block.id}
           {...installation}
           preview={
             <section aria-label={`${block.title} preview`} className="flex min-w-0 flex-1 flex-col">
