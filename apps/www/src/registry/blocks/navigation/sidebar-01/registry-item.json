@@ -11,6 +11,6 @@
   "meta": {
     "order": 130,
     "component": "AppSidebar",
-    "preview": { "colSpan": 1, "rowSpan": 3, "iframe": true }
+    "preview": { "colSpan": 1, "rowSpan": 3, "lazy": true, "iframe": true }
   }
 }

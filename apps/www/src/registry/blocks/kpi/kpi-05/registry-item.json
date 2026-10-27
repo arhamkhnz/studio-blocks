@@ -18,7 +18,8 @@
     "component": "Kpi05",
     "preview": {
       "colSpan": 1,
-      "rowSpan": 1
+      "rowSpan": 1,
+      "lazy": false
     }
   }
 }

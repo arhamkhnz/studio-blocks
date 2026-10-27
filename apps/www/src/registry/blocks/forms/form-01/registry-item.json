@@ -11,6 +11,6 @@
   "meta": {
     "order": 170,
     "component": "Form01",
-    "preview": { "colSpan": 2, "rowSpan": 2 }
+    "preview": { "colSpan": 2, "rowSpan": 2, "lazy": true, "mobileHeight": 560 }
   }
 }

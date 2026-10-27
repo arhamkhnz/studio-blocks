@@ -23,7 +23,8 @@
     "component": "Chart02",
     "preview": {
       "colSpan": 2,
-      "rowSpan": 2
+      "rowSpan": 2,
+      "lazy": true
     }
   }
 }

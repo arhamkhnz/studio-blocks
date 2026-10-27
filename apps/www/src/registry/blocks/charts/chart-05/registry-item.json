@@ -11,6 +11,6 @@
   "meta": {
     "order": 160,
     "component": "Chart05",
-    "preview": { "colSpan": 1, "rowSpan": 1 }
+    "preview": { "colSpan": 1, "rowSpan": 1, "lazy": true }
   }
 }

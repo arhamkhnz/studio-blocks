@@ -1,19 +1,10 @@
-import { BlockPreview } from "@/features/gallery/block-preview";
-import { blocks } from "@/features/gallery/catalog";
 import { GalleryContent } from "@/features/gallery/gallery-content";
+import { homepageBlocks } from "@/features/gallery/homepage-catalog";
 
 export function BlocksGallery() {
   return (
     <section aria-label="Blocks" className="flex min-w-0 flex-col">
-      <GalleryContent
-        blocks={blocks.map((block) => ({
-          id: block.id,
-          category: block.category,
-          colSpan: block.colSpan,
-          rowSpan: block.rowSpan,
-          preview: <BlockPreview {...block} />,
-        }))}
-      />
+      <GalleryContent blocks={homepageBlocks} />
     </section>
   );
 }

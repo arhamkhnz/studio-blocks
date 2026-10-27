@@ -18,7 +18,8 @@
     "component": "Chart01",
     "preview": {
       "colSpan": 2,
-      "rowSpan": 1
+      "rowSpan": 1,
+      "lazy": false
     }
   }
 }

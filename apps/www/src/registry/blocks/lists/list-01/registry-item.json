@@ -11,6 +11,6 @@
   "meta": {
     "order": 110,
     "component": "List01",
-    "preview": { "colSpan": 2, "rowSpan": 2 }
+    "preview": { "colSpan": 2, "rowSpan": 2, "lazy": true }
   }
 }

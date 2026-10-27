@@ -95,7 +95,8 @@ Create `registry-item.json` next to the component:
     "component": "Kpi08",
     "preview": {
       "colSpan": 1,
-      "rowSpan": 1
+      "rowSpan": 1,
+      "lazy": false
     }
   }
 }
@@ -103,23 +104,30 @@ Create `registry-item.json` next to the component:
 
 Replace the example's dependencies with the ones the block actually imports.
 
-| Field                  | Meaning                                                                                                                                             |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                 | Must match the block folder and public installation ID.                                                                                             |
-| `categories`           | Use the gallery category ID as the first entry. Available IDs are `kpi`, `charts`, `forms`, `tables`, `lists`, and `navigation`.                    |
-| `dependencies`         | npm packages imported by the installed source, such as `cn`, `lucide-react`, or `recharts`.                                                         |
-| `registryDependencies` | Standard shadcn primitives the block needs, such as `card`, `badge`, or `progress`.                                                                 |
-| `files`                | Paths relative to this manifest. List the installable component's `.tsx` file first. Include every supporting file required after installation.     |
-| `meta.component`       | The installable named React export. Used for previews and usage when there is no `example.tsx`.                                                     |
-| `meta.order`           | Optional non-negative integer. Lower values appear first; ties sort by block ID. Missing values go last. Existing values leave gaps for insertions. |
-| `meta.preview.colSpan` | Width of 1, 2, or 3 gallery columns. Defaults to 1.                                                                                                 |
-| `meta.preview.rowSpan` | Positive integer controlling gallery height. Defaults to 1.                                                                                         |
+| Field                       | Meaning                                                                                                                                                                                                                       |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                      | Must match the block folder and public installation ID.                                                                                                                                                                       |
+| `categories`                | Use the gallery category ID as the first entry. Available IDs are `kpi`, `charts`, `forms`, `tables`, `lists`, and `navigation`.                                                                                              |
+| `dependencies`              | npm packages imported by the installed source, such as `cn`, `lucide-react`, or `recharts`.                                                                                                                                   |
+| `registryDependencies`      | Standard shadcn primitives the block needs, such as `card`, `badge`, or `progress`.                                                                                                                                           |
+| `files`                     | Paths relative to this manifest. List the installable component's `.tsx` file first. Include every supporting file required after installation.                                                                               |
+| `meta.component`            | The installable named React export. Used for previews and usage when there is no `example.tsx`.                                                                                                                               |
+| `meta.order`                | Optional non-negative integer. Lower values appear first; ties sort by block ID. Missing values go last. Existing values leave gaps for insertions.                                                                           |
+| `meta.preview.colSpan`      | Width of 1, 2, or 3 gallery columns. Defaults to 1.                                                                                                                                                                           |
+| `meta.preview.rowSpan`      | Positive integer controlling gallery height. Defaults to 1.                                                                                                                                                                   |
+| `meta.preview.iframe`       | Render the preview in its own iframe. Defaults to `false`.                                                                                                                                                                    |
+| `meta.preview.lazy`         | Defer the homepage preview until near the viewport. Defaults to `false`. Uses actual viewport position rather than entry order.                                                                                               |
+| `meta.preview.mobileHeight` | Optional minimum height in CSS pixels for a lazy preview in the single-column layout. Integer of at least 256; otherwise derived from `rowSpan`. Set from measured content heights when the default reservation is too small. |
 
 Single-column previews have a 256px minimum height and grow for taller content. The grid uses its own container width: two columns at 38rem and three at 58rem. With multiple columns, rows stay fixed at 252px with a 12px gap: two rows are 516px. Row and column spans apply only in the multi-column layout. The dense grid can place later blocks into gaps, so visual placement is not always identical to source order.
 
-`PreviewFrame` uses CSS for shared width limits, padding, and centering. It does not measure or scale content with JavaScript. Single-column and detail previews grow naturally; multi-column previews keep their assigned row height. Give taller blocks enough `rowSpan` to fit at their normal text size. Preview metadata controls only `colSpan` and `rowSpan`; do not add per-block `maxWidth` or `scale` settings. Use container queries inside responsive blocks.
+`PreviewFrame` uses CSS for shared width limits, padding, and centering. It does not measure or scale content with JavaScript. Single-column and detail previews grow naturally; multi-column previews keep their assigned row height. Give taller blocks enough `rowSpan` to fit at their normal text size. Preview metadata controls layout and loading; do not add per-block `maxWidth` or `scale` settings. Use container queries inside responsive blocks.
+
+Set `meta.preview.lazy` to `true` for expensive interactive previews such as Recharts charts, data tables, and forms. Keep lightweight text, icons, and CSS-only visualizations eager, regardless of category. Deferred previews start loading 400px before entering the viewport and remain mounted while scrolling. The observer also handles previews initially visible, including category-filtered results and dense-grid placement. Their mobile placeholders reserve a minimum height based on `rowSpan`, or `mobileHeight` when provided; taller content can still grow. Detail pages render their previews normally. The generated homepage catalog keeps eager imports on the server and lazy imports in a separate Client Component module, so wrapping a preview does not eagerly serialize its rendered contents.
 
 A block spanning two columns does not need its own fixed width. Keep its component responsive and use preview metadata for gallery sizing.
+
+Each deferred preview has its own error boundary around its Suspense boundary. A failed component import or render shows a “Preview unavailable” tile linking to that block's details, preserving the reserved space and leaving the rest of the gallery usable.
 
 ### 3. Include supporting files
 

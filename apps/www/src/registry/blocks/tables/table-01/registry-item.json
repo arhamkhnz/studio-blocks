@@ -23,6 +23,6 @@
   "meta": {
     "order": 180,
     "component": "Table01",
-    "preview": { "colSpan": 2, "rowSpan": 2 }
+    "preview": { "colSpan": 2, "rowSpan": 2, "lazy": true }
   }
 }

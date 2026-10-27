@@ -11,6 +11,6 @@
   "meta": {
     "order": 190,
     "component": "Kpi08",
-    "preview": { "colSpan": 1, "rowSpan": 1 }
+    "preview": { "colSpan": 1, "rowSpan": 1, "lazy": false }
   }
 }

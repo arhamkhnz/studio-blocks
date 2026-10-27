@@ -22,7 +22,8 @@
         "component": "Kpi01",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -45,7 +46,8 @@
         "component": "Kpi02",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -67,7 +69,8 @@
         "component": "Kpi03",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -90,7 +93,8 @@
         "component": "Chart01",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -113,7 +117,8 @@
         "component": "Kpi04",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -136,7 +141,8 @@
         "component": "Kpi05",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -164,7 +170,8 @@
         "component": "Chart02",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true
         }
       }
     },
@@ -187,7 +194,8 @@
         "component": "Kpi06",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -210,7 +218,8 @@
         "component": "List01",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true
         }
       }
     },
@@ -233,7 +242,8 @@
         "component": "Chart03",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true
         }
       }
     },
@@ -257,6 +267,7 @@
         "preview": {
           "colSpan": 1,
           "rowSpan": 3,
+          "lazy": true,
           "iframe": true
         }
       }
@@ -280,7 +291,8 @@
         "component": "Chart04",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true
         }
       }
     },
@@ -303,7 +315,8 @@
         "component": "Kpi07",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     },
@@ -326,7 +339,8 @@
         "component": "Chart05",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": true
         }
       }
     },
@@ -349,7 +363,9 @@
         "component": "Form01",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true,
+          "mobileHeight": 560
         }
       }
     },
@@ -383,7 +399,8 @@
         "component": "Table01",
         "preview": {
           "colSpan": 2,
-          "rowSpan": 2
+          "rowSpan": 2,
+          "lazy": true
         }
       }
     },
@@ -406,7 +423,8 @@
         "component": "Kpi08",
         "preview": {
           "colSpan": 1,
-          "rowSpan": 1
+          "rowSpan": 1,
+          "lazy": false
         }
       }
     }
