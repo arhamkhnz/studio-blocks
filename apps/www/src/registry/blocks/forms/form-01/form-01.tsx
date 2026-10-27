@@ -153,13 +153,13 @@ export function Form01() {
                       <ToggleGroupItem
                         ref={field.ref}
                         value="private"
-                        className="rounded-md aria-pressed:bg-card data-[state=on]:bg-card"
+                        className="flex-1 rounded-md aria-pressed:bg-card data-[state=on]:bg-card @md/field-group:flex-none"
                       >
                         Private
                       </ToggleGroupItem>
                       <ToggleGroupItem
                         value="workspace"
-                        className="rounded-md aria-pressed:bg-card data-[state=on]:bg-card"
+                        className="flex-1 rounded-md aria-pressed:bg-card data-[state=on]:bg-card @md/field-group:flex-none"
                       >
                         Workspace
                       </ToggleGroupItem>
