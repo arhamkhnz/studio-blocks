@@ -14,9 +14,10 @@ import Block10 from "@/registry/blocks/navigation/sidebar-01/example";
 import Block11 from "@/registry/blocks/charts/chart-04/example";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import Block13 from "@/registry/blocks/charts/chart-05/example";
-import { Form01 as Block14 } from "@/registry/blocks/forms/form-01/form-01";
-import Block15 from "@/registry/blocks/tables/table-01/example";
-import { Kpi08 as Block16 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+import Block14 from "@/registry/blocks/charts/chart-06/example";
+import { Form01 as Block15 } from "@/registry/blocks/forms/form-01/form-01";
+import Block16 from "@/registry/blocks/tables/table-01/example";
+import { Kpi08 as Block17 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 
 export const blocks = [
   {
@@ -163,11 +164,21 @@ export const blocks = [
     iframe: false,
   },
   {
+    id: "chart-06",
+    title: "Performance Score",
+    description: "A circular performance score with five individually scored metric segments.",
+    category: "charts",
+    component: Block14,
+    colSpan: 1,
+    rowSpan: 2,
+    iframe: false,
+  },
+  {
     id: "form-01",
     title: "Create Project",
     description: "A compact project form with optional details and workspace visibility controls.",
     category: "forms",
-    component: Block14,
+    component: Block15,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
@@ -177,7 +188,7 @@ export const blocks = [
     title: "Recent Invoices",
     description: "An invoice data table with status filtering, search, sorting, and pagination.",
     category: "tables",
-    component: Block15,
+    component: Block16,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
@@ -187,7 +198,7 @@ export const blocks = [
     title: "API Cost",
     description: "A compact API cost KPI with an orange bar sparkline and a daily cost comparison.",
     category: "kpi",
-    component: Block16,
+    component: Block17,
     colSpan: 1,
     rowSpan: 1,
     iframe: false,

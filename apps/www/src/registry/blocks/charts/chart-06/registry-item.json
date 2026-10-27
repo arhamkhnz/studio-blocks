@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-06",
+  "type": "registry:block",
+  "title": "Performance Score",
+  "description": "A circular performance score with five individually scored metric segments.",
+  "categories": ["charts"],
+  "files": [
+    {
+      "path": "chart-06.tsx",
+      "type": "registry:component"
+    }
+  ],
+  "meta": {
+    "order": 170,
+    "component": "Chart06",
+    "preview": {
+      "colSpan": 1,
+      "rowSpan": 2,
+      "lazy": false
+    }
+  },
+  "registryDependencies": ["chart"],
+  "dependencies": ["cn", "recharts@^3.8.0"]
+}
