@@ -6,6 +6,7 @@ import { cn } from "cn";
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from "@studio-blocks/blocks-ui/components/empty";
 import { Skeleton } from "@studio-blocks/blocks-ui/components/skeleton";
 
+import { blockCategories, type CategoryFilter } from "@/features/filters/block-categories";
 import { BlockFilters } from "@/features/filters/block-filters";
 import { updateCategory, useCategoryFilter } from "@/features/filters/use-category-filter";
 import type { GalleryBlock } from "@/features/gallery/types";
@@ -18,6 +19,12 @@ const columnSpans = {
 
 const galleryGridClassName =
   "grid grid-flow-dense grid-cols-1 gap-3 @min-[38rem]/gallery:auto-rows-63 @min-[38rem]/gallery:grid-cols-2 @min-[58rem]/gallery:grid-cols-3";
+
+const filteredCategoryValues = blockCategories
+  .filter((category) => category.value !== "all")
+  .map((category) => category.value);
+// Run before the fallback's content is parsed so filtered URLs never paint the default gallery.
+const initializeGalleryFallback = `(()=>{const values=new URLSearchParams(window.location.search).getAll("category");if(values.length===1&&${JSON.stringify(filteredCategoryValues)}.includes(values[0]))document.currentScript.parentElement.setAttribute("data-filtered","")})()`;
 
 type GalleryContentProps = {
   blocks: (Pick<GalleryBlock, "id" | "category" | "colSpan" | "rowSpan"> & {
@@ -40,9 +47,23 @@ export function GalleryContent({ blocks }: GalleryContentProps) {
         </Suspense>
       </div>
       <div id="block-results" className="flex flex-1 flex-col">
-        <Suspense fallback={<GallerySkeleton />}>
-          <GalleryResults blocks={blocks} />
+        <Suspense fallback={<InitialGallery blocks={blocks} />}>
+          <FilteredGalleryResults blocks={blocks} />
         </Suspense>
+      </div>
+    </div>
+  );
+}
+
+function InitialGallery({ blocks }: GalleryContentProps) {
+  return (
+    <div className="group/gallery-fallback">
+      <script dangerouslySetInnerHTML={{ __html: initializeGalleryFallback }} />
+      <div className="group-data-filtered/gallery-fallback:hidden">
+        <GalleryResults blocks={blocks} category="all" />
+      </div>
+      <div className="hidden group-data-filtered/gallery-fallback:block">
+        <GallerySkeleton />
       </div>
     </div>
   );
@@ -78,8 +99,12 @@ function GalleryFilters({ blocks }: GalleryContentProps) {
   );
 }
 
-function GalleryResults({ blocks }: GalleryContentProps) {
+function FilteredGalleryResults({ blocks }: GalleryContentProps) {
   const [category] = useCategoryFilter();
+  return <GalleryResults blocks={blocks} category={category} />;
+}
+
+function GalleryResults({ blocks, category }: GalleryContentProps & { category: CategoryFilter }) {
   const visibleBlocks = category === "all" ? blocks : blocks.filter((block) => block.category === category);
 
   return (
