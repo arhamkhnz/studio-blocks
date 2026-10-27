@@ -1,10 +1,11 @@
 "use client";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@studio-blocks/blocks-ui/components/tabs";
-import { useState, type ReactNode } from "react";
+import { Suspense, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 
 import { CodeBlock, CodeSkeleton, CopyButton } from "./code-block";
+import { useInstallationTab } from "./use-installation-tab";
 
 type InstallationProps = {
   registryItem: string;
@@ -22,30 +23,32 @@ const runners = {
 
 const BlockSource = dynamic(() => import("./block-source"), { loading: CodeSkeleton });
 
-export function BlockInstallation({ registryItem, registryUrl, usage, preview }: InstallationProps) {
+export function BlockInstallation(props: InstallationProps) {
+  return (
+    <Suspense
+      fallback={
+        <Tabs value={null} className="min-w-0 flex-1 gap-6" aria-busy="true">
+          <InstallationTabsList hasPreview={Boolean(props.preview)} />
+          <CodeSkeleton />
+        </Tabs>
+      }
+    >
+      <BlockInstallationContent {...props} />
+    </Suspense>
+  );
+}
+
+function BlockInstallationContent({ registryItem, registryUrl, usage, preview }: InstallationProps) {
+  const [tab, setTab] = useInstallationTab(Boolean(preview));
   const [packageManager, setPackageManager] = useState("pnpm");
-  const [hasOpenedSource, setHasOpenedSource] = useState(false);
+  const [hasOpenedSource, setHasOpenedSource] = useState(tab === "code");
+  if (tab === "code" && !hasOpenedSource) setHasOpenedSource(true);
   const commands = Object.entries(runners);
   const command = `${runners[packageManager as keyof typeof runners]} ${registryItem}`;
 
   return (
-    <Tabs
-      defaultValue={preview ? "preview" : "installation"}
-      onValueChange={(value) => {
-        if (value === "source") setHasOpenedSource(true);
-      }}
-      className="min-w-0 flex-1 gap-6"
-    >
-      <TabsList
-        variant="line"
-        aria-label="Block instructions"
-        className="gap-6 px-0 *:data-[slot=tabs-trigger]:flex-none *:data-[slot=tabs-trigger]:border-0 *:data-[slot=tabs-trigger]:px-0 *:data-[slot=tabs-trigger]:after:-inset-x-0.5"
-      >
-        {preview && <TabsTrigger value="preview">Preview</TabsTrigger>}
-        <TabsTrigger value="installation">Installation</TabsTrigger>
-        <TabsTrigger value="usage">Usage</TabsTrigger>
-        <TabsTrigger value="source">Code</TabsTrigger>
-      </TabsList>
+    <Tabs value={tab} onValueChange={(value) => setTab(String(value))} className="min-w-0 flex-1 gap-6">
+      <InstallationTabsList hasPreview={Boolean(preview)} />
       {preview && (
         <TabsContent value="preview" className="flex min-w-0 flex-col">
           {preview}
@@ -81,7 +84,7 @@ export function BlockInstallation({ registryItem, registryUrl, usage, preview }:
       <TabsContent value="usage" className="min-w-0">
         <CodeBlock code={usage} />
       </TabsContent>
-      <TabsContent value="source" keepMounted={hasOpenedSource} className="flex min-w-0 flex-col gap-6">
+      <TabsContent value="code" keepMounted={hasOpenedSource} className="flex min-w-0 flex-col gap-6">
         {hasOpenedSource && (
           <BlockSource
             key={registryUrl}
@@ -92,5 +95,20 @@ export function BlockInstallation({ registryItem, registryUrl, usage, preview }:
         )}
       </TabsContent>
     </Tabs>
+  );
+}
+
+function InstallationTabsList({ hasPreview }: { hasPreview: boolean }) {
+  return (
+    <TabsList
+      variant="line"
+      aria-label="Block instructions"
+      className="gap-6 px-0 *:data-[slot=tabs-trigger]:flex-none *:data-[slot=tabs-trigger]:border-0 *:data-[slot=tabs-trigger]:px-0 *:data-[slot=tabs-trigger]:after:-inset-x-0.5"
+    >
+      {hasPreview && <TabsTrigger value="preview">Preview</TabsTrigger>}
+      <TabsTrigger value="installation">Installation</TabsTrigger>
+      <TabsTrigger value="usage">Usage</TabsTrigger>
+      <TabsTrigger value="code">Code</TabsTrigger>
+    </TabsList>
   );
 }
