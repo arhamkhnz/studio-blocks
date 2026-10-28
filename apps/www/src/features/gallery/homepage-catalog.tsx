@@ -11,7 +11,7 @@ import { Kpi04 as Block4 } from "@/registry/blocks/kpi/kpi-04/kpi-04";
 import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
-import { Kpi08 as Block17 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+import { Kpi08 as Block18 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 
 export const homepageBlocks = [
   {
@@ -123,7 +123,9 @@ export const homepageBlocks = [
     category: "charts",
     colSpan: 1,
     rowSpan: 2,
-    preview: <DeferredBlockPreview id={"chart-06"} title={"Performance Score"} colSpan={1} iframe={false} rowSpan={2} />,
+    preview: (
+      <DeferredBlockPreview id={"chart-06"} title={"Performance Score"} colSpan={1} iframe={false} rowSpan={2} />
+    ),
   },
   {
     id: "form-01",
@@ -142,6 +144,13 @@ export const homepageBlocks = [
     ),
   },
   {
+    id: "chart-07",
+    category: "charts",
+    colSpan: 2,
+    rowSpan: 2,
+    preview: <DeferredBlockPreview id={"chart-07"} title={"Token Usage"} colSpan={2} iframe={false} rowSpan={2} />,
+  },
+  {
     id: "table-01",
     category: "tables",
     colSpan: 2,
@@ -153,6 +162,6 @@ export const homepageBlocks = [
     category: "kpi",
     colSpan: 1,
     rowSpan: 1,
-    preview: <BlockPreview id={"kpi-08"} title={"API Cost"} colSpan={1} iframe={false} component={Block17} />,
+    preview: <BlockPreview id={"kpi-08"} title={"API Cost"} colSpan={1} iframe={false} component={Block18} />,
   },
 ] satisfies (Pick<GalleryBlock, "id" | "category" | "colSpan" | "rowSpan"> & { preview: ReactNode })[];

@@ -16,8 +16,9 @@ import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import Block13 from "@/registry/blocks/charts/chart-05/example";
 import Block14 from "@/registry/blocks/charts/chart-06/example";
 import { Form01 as Block15 } from "@/registry/blocks/forms/form-01/form-01";
-import Block16 from "@/registry/blocks/tables/table-01/example";
-import { Kpi08 as Block17 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+import Block16 from "@/registry/blocks/charts/chart-07/example";
+import Block17 from "@/registry/blocks/tables/table-01/example";
+import { Kpi08 as Block18 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 
 export const blocks = [
   {
@@ -184,11 +185,22 @@ export const blocks = [
     iframe: false,
   },
   {
+    id: "chart-07",
+    title: "Token Usage",
+    description:
+      "A stepped chart of hourly token usage over the last 24 hours, with a green line, gradient fill, and token-count tooltips.",
+    category: "charts",
+    component: Block16,
+    colSpan: 2,
+    rowSpan: 2,
+    iframe: false,
+  },
+  {
     id: "table-01",
     title: "Recent Invoices",
     description: "An invoice data table with status filtering, search, sorting, and pagination.",
     category: "tables",
-    component: Block16,
+    component: Block17,
     colSpan: 2,
     rowSpan: 2,
     iframe: false,
@@ -198,7 +210,7 @@ export const blocks = [
     title: "API Cost",
     description: "A compact API cost KPI with an orange bar sparkline and a daily cost comparison.",
     category: "kpi",
-    component: Block17,
+    component: Block18,
     colSpan: 1,
     rowSpan: 1,
     iframe: false,

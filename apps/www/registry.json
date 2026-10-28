@@ -394,6 +394,30 @@
       }
     },
     {
+      "name": "chart-07",
+      "type": "registry:block",
+      "title": "Token Usage",
+      "description": "A stepped chart of hourly token usage over the last 24 hours, with a green line, gradient fill, and token-count tooltips.",
+      "categories": ["charts"],
+      "dependencies": ["recharts@^3.8.0"],
+      "registryDependencies": ["card", "chart", "empty"],
+      "files": [
+        {
+          "path": "src/registry/blocks/charts/chart-07/chart-07.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "order": 175,
+        "component": "Chart07",
+        "preview": {
+          "colSpan": 2,
+          "rowSpan": 2,
+          "lazy": true
+        }
+      }
+    },
+    {
       "name": "table-01",
       "type": "registry:block",
       "title": "Recent Invoices",
