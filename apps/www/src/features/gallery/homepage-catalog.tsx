@@ -164,4 +164,13 @@ export const homepageBlocks = [
     rowSpan: 1,
     preview: <BlockPreview id={"kpi-08"} title={"API Cost"} colSpan={1} iframe={false} component={Block18} />,
   },
+  {
+    id: "chart-08",
+    category: "charts",
+    colSpan: 2,
+    rowSpan: 1,
+    preview: (
+      <DeferredBlockPreview id={"chart-08"} title={"Storage Breakdown"} colSpan={2} iframe={false} rowSpan={1} />
+    ),
+  },
 ] satisfies (Pick<GalleryBlock, "id" | "category" | "colSpan" | "rowSpan"> & { preview: ReactNode })[];

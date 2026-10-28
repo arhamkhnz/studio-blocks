@@ -15,4 +15,5 @@ export const previewComponents: Record<string, ComponentType> = {
   ),
   "chart-07": lazy(() => import("@/registry/blocks/charts/chart-07/example")),
   "table-01": lazy(() => import("@/registry/blocks/tables/table-01/example")),
+  "chart-08": lazy(() => import("@/registry/blocks/charts/chart-08/example")),
 };

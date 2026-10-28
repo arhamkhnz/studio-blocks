@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chart-08",
+  "type": "registry:block",
+  "title": "Storage Breakdown",
+  "description": "A horizontal storage card with a segmented usage bar, an inline category legend, and available space labeled inside the bar.",
+  "categories": ["charts"],
+  "dependencies": ["recharts@^3.8.0"],
+  "registryDependencies": ["card", "chart", "empty"],
+  "files": [{ "path": "chart-08.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 195,
+    "component": "Chart08",
+    "preview": { "colSpan": 2, "rowSpan": 1, "lazy": true }
+  }
+}

@@ -19,6 +19,7 @@ import { Form01 as Block15 } from "@/registry/blocks/forms/form-01/form-01";
 import Block16 from "@/registry/blocks/charts/chart-07/example";
 import Block17 from "@/registry/blocks/tables/table-01/example";
 import { Kpi08 as Block18 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+import Block19 from "@/registry/blocks/charts/chart-08/example";
 
 export const blocks = [
   {
@@ -212,6 +213,17 @@ export const blocks = [
     category: "kpi",
     component: Block18,
     colSpan: 1,
+    rowSpan: 1,
+    iframe: false,
+  },
+  {
+    id: "chart-08",
+    title: "Storage Breakdown",
+    description:
+      "A horizontal storage card with a segmented usage bar, an inline category legend, and available space labeled inside the bar.",
+    category: "charts",
+    component: Block19,
+    colSpan: 2,
     rowSpan: 1,
     iframe: false,
   },
