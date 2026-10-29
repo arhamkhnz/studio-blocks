@@ -20,6 +20,7 @@ import Block16 from "@/registry/blocks/charts/chart-07/example";
 import Block17 from "@/registry/blocks/tables/table-01/example";
 import { Kpi08 as Block18 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
 import Block19 from "@/registry/blocks/charts/chart-08/example";
+import { Kpi09 as Block20 } from "@/registry/blocks/kpi/kpi-09/kpi-09";
 
 export const blocks = [
   {
@@ -224,6 +225,17 @@ export const blocks = [
     category: "charts",
     component: Block19,
     colSpan: 2,
+    rowSpan: 1,
+    iframe: false,
+  },
+  {
+    id: "kpi-09",
+    title: "Conversation Started",
+    description:
+      "A compact card showing when the first message was sent to an agent today, with a prominent time and a clock icon.",
+    category: "kpi",
+    component: Block20,
+    colSpan: 1,
     rowSpan: 1,
     iframe: false,
   },

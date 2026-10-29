@@ -12,6 +12,7 @@ import { Kpi05 as Block5 } from "@/registry/blocks/kpi/kpi-05/kpi-05";
 import { Kpi06 as Block7 } from "@/registry/blocks/kpi/kpi-06/kpi-06";
 import Block12 from "@/registry/blocks/kpi/kpi-07/example";
 import { Kpi08 as Block18 } from "@/registry/blocks/kpi/kpi-08/kpi-08";
+import { Kpi09 as Block20 } from "@/registry/blocks/kpi/kpi-09/kpi-09";
 
 export const homepageBlocks = [
   {
@@ -171,6 +172,15 @@ export const homepageBlocks = [
     rowSpan: 1,
     preview: (
       <DeferredBlockPreview id={"chart-08"} title={"Storage Breakdown"} colSpan={2} iframe={false} rowSpan={1} />
+    ),
+  },
+  {
+    id: "kpi-09",
+    category: "kpi",
+    colSpan: 1,
+    rowSpan: 1,
+    preview: (
+      <BlockPreview id={"kpi-09"} title={"Conversation Started"} colSpan={1} iframe={false} component={Block20} />
     ),
   },
 ] satisfies (Pick<GalleryBlock, "id" | "category" | "colSpan" | "rowSpan"> & { preview: ReactNode })[];

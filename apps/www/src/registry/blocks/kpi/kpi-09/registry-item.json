@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-09",
+  "type": "registry:block",
+  "title": "Conversation Started",
+  "description": "A compact card showing when the first message was sent to an agent today, with a prominent time and a clock icon.",
+  "categories": ["kpi"],
+  "dependencies": ["@keyline-icons/react@^2.2.0"],
+  "registryDependencies": ["card"],
+  "files": [{ "path": "kpi-09.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 200,
+    "component": "Kpi09",
+    "preview": { "colSpan": 1, "rowSpan": 1, "lazy": false }
+  }
+}
