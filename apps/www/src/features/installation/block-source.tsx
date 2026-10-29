@@ -18,6 +18,22 @@ type BlockSourceProps = {
   componentCommand: string;
 };
 
+const sourceLanguages: Record<string, string> = {
+  tsx: "tsx",
+  ts: "typescript",
+  jsx: "jsx",
+  js: "javascript",
+  mjs: "javascript",
+  cjs: "javascript",
+  json: "json",
+  css: "css",
+  html: "html",
+  md: "markdown",
+  yaml: "yaml",
+  yml: "yaml",
+  sh: "bash",
+};
+
 export default function BlockSource({ registryUrl, packageManager, componentCommand }: BlockSourceProps) {
   const [state, setState] = useState<SourceState>({ status: "loading" });
   const [retry, setRetry] = useState(0);
@@ -87,6 +103,8 @@ export default function BlockSource({ registryUrl, packageManager, componentComm
           key={file.path}
           title={(file.target ?? file.path).replace(/^@components\//, "components/")}
           code={file.content}
+          language={sourceLanguages[file.path.split(".").pop() ?? ""]}
+          lineNumbers
         />
       ))}
     </>

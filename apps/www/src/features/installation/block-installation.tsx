@@ -4,7 +4,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@studio-blocks/blocks-
 import { Suspense, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 
-import { CodeBlock, CodeSkeleton, CopyButton } from "./code-block";
+import {
+  CodeBlock as CodeBlockRoot,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockHeader,
+} from "@studio-blocks/blocks-ui/components/code-block";
+
+import { CodeBlock, CodeSkeleton } from "./code-block";
 import { useInstallationTab } from "./use-installation-tab";
 
 type InstallationProps = {
@@ -55,34 +63,39 @@ function BlockInstallationContent({ registryItem, registryUrl, usage, preview }:
         </TabsContent>
       )}
       <TabsContent value="installation" className="min-w-0">
-        <Tabs
-          value={packageManager}
-          onValueChange={(value) => setPackageManager(String(value))}
-          className="gap-0 overflow-hidden border border-preview-border/60 bg-preview"
-        >
-          <div className="flex items-center justify-between gap-3 border-b border-preview-border/40 px-3 py-1.5">
-            <TabsList aria-label="Package manager" className="bg-transparent">
-              {commands.map(([manager]) => (
-                <TabsTrigger key={manager} value={manager}>
-                  {manager}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            <CopyButton key={command} value={command} />
-          </div>
-          {commands.map(([manager, runner]) => (
-            <TabsContent key={manager} value={manager}>
-              <pre className="overflow-x-auto px-4 py-4 text-sm leading-6">
-                <code>
-                  {runner} {registryItem}
-                </code>
-              </pre>
-            </TabsContent>
-          ))}
-        </Tabs>
+        <CodeBlockRoot className="rounded-none">
+          <Tabs
+            value={packageManager}
+            onValueChange={(value) => setPackageManager(String(value))}
+            className="gap-4 pt-1 pb-2"
+          >
+            <CodeBlockHeader className="pt-0">
+              <TabsList aria-label="Package manager" variant="line" className="gap-4 p-0">
+                {commands.map(([manager]) => (
+                  <TabsTrigger key={manager} value={manager} className="flex-none border-0 px-0 after:bottom-0">
+                    {manager}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              <CodeBlockActions>
+                <CodeBlockCopyButton key={command} value={command} />
+              </CodeBlockActions>
+            </CodeBlockHeader>
+            {commands.map(([manager, runner]) => (
+              <TabsContent key={manager} value={manager}>
+                <CodeBlockContent
+                  aria-label={`${manager} installation command`}
+                  className="py-0 group-has-data-[slot=code-block-header]/code-block:pt-0"
+                >
+                  {`${runner} ${registryItem}`}
+                </CodeBlockContent>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </CodeBlockRoot>
       </TabsContent>
       <TabsContent value="usage" className="min-w-0">
-        <CodeBlock code={usage} />
+        <CodeBlock code={usage} language="tsx" lineNumbers />
       </TabsContent>
       <TabsContent value="code" keepMounted={hasOpenedSource} className="flex min-w-0 flex-col gap-6">
         {hasOpenedSource && (

@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./components/*": "./src/components/*.tsx",
+    "./lib/highlighter": "./src/lib/highlighter.tsx",
     "./lib/*": "./src/lib/*.ts",
     "./hooks/*": "./src/hooks/*.ts"
   },
@@ -13,7 +14,8 @@
     "class-variance-authority": "^0.7.1",
     "cn": "^0.5.0",
     "lucide-react": "^1.61.0",
-    "recharts": "3.8.0"
+    "recharts": "3.8.0",
+    "shiki": "^4.5.0"
   },
   "peerDependencies": {
     "react": "^19.3.1",
