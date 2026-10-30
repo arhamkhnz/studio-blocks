@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kpi-10",
+  "type": "registry:block",
+  "title": "Active Contracts",
+  "description": "A compact KPI card with a boxed icon beside its label and value, and a full-width details link in a muted footer.",
+  "categories": ["kpi"],
+  "dependencies": ["@keyline-icons/react@^2.2.0"],
+  "registryDependencies": ["card"],
+  "files": [{ "path": "kpi-10.tsx", "type": "registry:component" }],
+  "meta": {
+    "order": 220,
+    "component": "Kpi10",
+    "preview": { "colSpan": 1, "rowSpan": 1, "lazy": false }
+  }
+}
